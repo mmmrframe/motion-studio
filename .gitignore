@@ -1,0 +1,6 @@
+node_modules/
+.wrangler/
+work/
+out/
+__pycache__/
+.DS_Store

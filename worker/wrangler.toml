@@ -1,0 +1,17 @@
+name = "motion-studio-api"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+REPO = "mmmrframe/motion-studio"                 # owner/repo
+ALLOWED_ORIGIN = "https://mmmrframe.github.io"   # адрес страницы формы
+R2_ACCOUNT_ID = "CLOUDFLARE_ACCOUNT_ID"
+R2_BUCKET = "motion-studio"
+
+[[kv_namespaces]]
+binding = "KEYS"
+id = "KV_NAMESPACE_ID"                     # wrangler kv namespace create KEYS
+
+[[r2_buckets]]
+binding = "BUCKET"
+bucket_name = "motion-studio"

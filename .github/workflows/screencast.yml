@@ -1,0 +1,83 @@
+name: screencast
+
+# Заявку создаёт Worker: issue с метками screencast + status:queued.
+# Перезапуск: снять и снова поставить метку status:queued.
+on:
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: screencast-${{ github.event.issue.number }}
+
+jobs:
+  build:
+    if: >-
+      github.event.label.name == 'status:queued' &&
+      contains(github.event.issue.labels.*.name, 'screencast') &&
+      github.event.issue.user.login == vars.SUBMIT_BOT
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      issues: write
+      id-token: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      N: ${{ github.event.issue.number }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      R2: --endpoint-url https://${{ vars.R2_ACCOUNT_ID }}.r2.cloudflarestorage.com
+    steps:
+      - uses: actions/checkout@v4
+        with: { lfs: true }   # музыка и мокапы лежат в Git LFS
+
+      - name: Взяли в работу
+        run: gh issue edit $N --remove-label status:queued --add-label status:working
+
+      - name: Инструменты
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-inter > /dev/null
+
+      - name: Разобрать заявку и скачать исходник
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}   # через env, не в shell напрямую
+          R2_BUCKET: ${{ vars.R2_BUCKET }}
+        run: python3 scripts/prepare.py
+
+      - name: Claude собирает ролик
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          # или: claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Выполни заявку на скринкаст. Задание — work/prompt.md, данные — work/request.json,
+            исходник — work/source.*. Регламент — agent/CLAUDE.md, прочитай его первым.
+            Результат: out/result.mp4 и out/preview.jpg. Вопрос к заказчику — out/QUESTION.md.
+          claude_args: >-
+            --max-turns 80
+            --allowedTools "Bash(ffmpeg:*),Bash(ffprobe:*),Bash(python3:*),Bash(ls:*),Bash(mkdir:*),Read,Write,Edit"
+
+      - name: Вопрос заказчику?
+        id: q
+        run: |
+          if [ -f out/QUESTION.md ]; then
+            gh issue comment $N --body "❓ $(cat out/QUESTION.md)"
+            gh issue edit $N --remove-label status:working --add-label status:question
+            echo "asked=1" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Проверка и выгрузка
+        if: steps.q.outputs.asked != '1'
+        run: |
+          gh issue edit $N --remove-label status:working --add-label status:render
+          python3 scripts/check_output.py out/result.mp4 work/request.json
+          aws s3 cp out/result.mp4  s3://${{ vars.R2_BUCKET }}/results/$N/result.mp4 $R2
+          aws s3 cp out/preview.jpg s3://${{ vars.R2_BUCKET }}/results/$N/preview.jpg $R2
+          gh issue comment $N --body "✅ Ролик готов — скачать можно на странице заявки. Длительность: $(ffprobe -v error -show_entries format=duration -of csv=p=0 out/result.mp4 | cut -d. -f1) с."
+          gh issue edit $N --remove-label status:render --add-label status:done
+
+      - name: Ошибка
+        if: failure()
+        run: |
+          gh issue comment $N --body "⚠️ Сборка упала: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          gh issue edit $N --remove-label status:working --remove-label status:render --add-label status:error

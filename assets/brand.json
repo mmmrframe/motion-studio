@@ -1,0 +1,14 @@
+{
+  "_comment": "Значения logo — заглушка до сверки с гайдом Солар: поправьте отступы и высоту по гайду.",
+  "font": "ONY Medium",
+  "colors": { "accent": "#FE6E36", "white": "#FFFFFF", "dark": "#2B323A" },
+  "titles": { "size": 0.042, "box_bg": "#2B323A", "box_opacity": 0.85, "radius": 0.012 },
+  "logo": {
+    "files": { "white": "assets/brand/solar_logo_white.png", "dark": "assets/brand/solar_logo_dark.png" },
+    "position": "top-left",
+    "margin_x": 0.042,
+    "margin_y": 0.065,
+    "height": 0.037,
+    "fade_in": 0.4
+  }
+}
