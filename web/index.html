@@ -7,6 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
+/* Onest (OFL) — замена фирменного ONY One в предпросмотре; метрики подогнаны под проект */
+@font-face{font-family:Onest;font-weight:300;font-display:swap;src:url(fonts/onest-cyrillic-300-normal.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:300;font-display:swap;src:url(fonts/onest-latin-300-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Onest;font-weight:400;font-display:swap;src:url(fonts/onest-cyrillic-400-normal.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:400;font-display:swap;src:url(fonts/onest-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Onest;font-weight:500;font-display:swap;src:url(fonts/onest-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:Onest;font-weight:500;font-display:swap;src:url(fonts/onest-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --bg:#0a0a0b; --panel:#111113; --panel2:#17171a; --field:#0b0b0d;
   --line:#26262b; --line2:#33333a; --text:#f4f4f5; --mute:#8d8d96; --dim:#5d5d66;
@@ -255,32 +262,30 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
 .pv .who{display:grid;place-items:end center}
 .pv .who:before{content:"";width:34%;aspect-ratio:1;border-radius:50%;background:#8a9198;position:absolute;top:24%;left:33%}
 .pv .who:after{content:"";width:64%;height:34%;border-radius:45% 45% 0 0;background:#8a9198;position:absolute;bottom:0;left:18%}
-.pv .txt{position:absolute;display:flex;flex-direction:column;gap:2.2cqh}
-.pv .badge{align-self:flex-start;background:#FE6E36;color:#fff;font:700 2.1cqh/1 Inter,sans-serif;letter-spacing:.08em;padding:.7cqh 1.3cqh;border-radius:99px}
-.pv .when{display:flex;gap:2cqh;font:600 2.6cqh/1 Inter,sans-serif;color:#FE6E36}
-.pv .ttl{font:700 4.4cqh/1.1 Inter,sans-serif;letter-spacing:-.01em}
-.pv .pts{display:grid;gap:1.3cqh}
-.pv .pt{display:grid;grid-template-columns:5cqh 1fr;gap:1.2cqh;font:500 2.2cqh/1.3 Inter,sans-serif;color:#d7dade}
-.pv .pt b{color:#FE6E36;font-weight:700}
-.pv .who2{margin-top:auto;display:grid;gap:.6cqh}
-.pv .who2 b{font:700 2.8cqh/1.15 Inter,sans-serif}
-.pv .who2 span{font:500 2cqh/1.3 Inter,sans-serif;color:#b9bec4}
-.pv .who2 i{font:600 1.9cqh/1 Inter,sans-serif;font-style:normal;color:#FE6E36;margin-top:.6cqh}
-.pv .note{position:absolute;right:1.5cqh;bottom:1.2cqh;font:500 1.5cqh/1 Inter,sans-serif;color:rgba(255,255,255,.45)}
-.pv .ph{color:rgba(255,255,255,.35)}
-/* раскладки форматов (схема) */
-.pv.f16_9 .vid{right:0;top:0;bottom:0;width:46%}
-.pv.f16_9 .txt{left:5%;top:8%;bottom:8%;width:44%}
-.pv.f1_1 .vid{left:0;right:0;top:0;height:46%}
-.pv.f1_1 .txt{left:6%;right:6%;top:50%;bottom:5%;gap:1.6cqh}
-.pv.f1_1 .ttl{font-size:3.6cqh}
-.pv.f4_5 .vid{left:0;right:0;top:0;height:44%}
-.pv.f4_5 .txt{left:6%;right:6%;top:48%;bottom:4%;gap:1.6cqh}
-.pv.f4_5 .ttl{font-size:3.4cqh}
-.pv.f9_16 .vid{left:0;right:0;top:0;height:40%}
-.pv.f9_16 .txt{left:7%;right:7%;top:44%;bottom:4%;gap:1.8cqh}
-.pv.f9_16 .ttl{font-size:3.1cqh}
-.pv.f9_16 .pt{font-size:1.75cqh}
+.pvw{position:relative;margin:0 auto;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.fr{position:absolute;left:0;top:0;transform-origin:0 0;background:#F2EFEE;font-family:Onest,"ONY One",Inter,sans-serif;overflow:hidden}
+.fr .b{position:absolute;box-sizing:border-box;overflow:hidden}
+.fr .vid{background:linear-gradient(120deg,#e9a07f,#a68a83 45%,#8f7d78)}
+.fr .vid video,.fr .vid .who{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fr .vid .who{background:none}
+.fr .vid .who:before{content:"";position:absolute;width:26%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.18);left:37%;top:14%}
+.fr .vid .who:after{content:"";position:absolute;width:56%;height:46%;border-radius:48% 48% 0 0;background:rgba(255,255,255,.18);left:22%;bottom:0}
+.fr .vid img{position:absolute;height:auto;z-index:2}
+.fr .ttl{background:#333841;color:#F2EFEE;text-transform:uppercase;font-weight:500;letter-spacing:.005em}
+.fr .pts{background:#fff;color:#323840;display:flex;flex-direction:column;font-weight:500}
+.fr .it{display:grid;align-items:start}
+.fr .it b{color:#EE804D;font-weight:400}
+.fitwarn{margin-top:14px;border:1px solid rgba(229,72,77,.5);background:rgba(229,72,77,.08);border-radius:12px;padding:10px 14px;font-size:13px;color:#f3b1b3}
+.fitwarn b{color:#fff}
+.fr .spk{background:#333841;color:#F2EFEE;font-weight:500;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.fr .smc{font-size:.74em}
+.fr .circ{background:#fff;border-radius:50%;display:grid;place-items:center}
+.fr .org{background:#EE804D;color:#32383E;display:flex;font-weight:400;line-height:1.1}
+.fr .org .t{color:#fff}
+.fr .org .dt{white-space:nowrap}
+.fr .ex{opacity:.38}
+.fr .over{color:#e5484d!important}
+.fmtnote{text-align:center;font-size:12px;color:var(--dim);margin-top:10px}
 /* обрезка */
 .pv.trim{aspect-ratio:16/9;width:100%;background:#000}
 .pv.trim .vid{inset:0}
@@ -904,14 +909,25 @@ const P_FORMATS = [
 ];
 // Ключи = заголовки master text.csv (в «Сontent» первая буква — кириллическая С)
 const C1="\u0421ontent 1", C2="\u0421ontent 2", C3="\u0421ontent 3";
+// Лимиты из брифа: текст не выходит за поля блока. MAX — 75 знаков с пробелами (имя — одна строка в плашке);
+// MIN — меньше макет выглядит пустым. Те же числа проверяет скрипт для AE.
 const P_FIELDS = [
-  {k:"Family name and Name", label:"Имя и фамилия спикера", ph:"Алексей Вишняков", max:32},
-  {k:"Job title", label:"Должность", ph:"Технический директор департамента IdM", max:70, ta:true},
-  {k:"Title", label:"Тема эфира", ph:"Новая IdM-реальность: результаты внедрений коробочной версии", max:110, ta:true},
-  {k:C1, label:"Тезис 1", ph:"Как мы решились на создание коробочной версии", max:80, ta:true},
-  {k:C2, label:"Тезис 2", ph:"Результаты исследований и первых проектов", max:80, ta:true},
-  {k:C3, label:"Тезис 3", ph:"Функциональность «коробки» и эффект внедрения", max:80, ta:true}
+  {k:"Family name and Name", label:"Имя и фамилия спикера", ph:"Вураско Александр", min:5, max:30,
+   ex:"Вураско Александр", why:"одна строка в плашке"},
+  {k:"Job title", label:"Должность", ph:"Директор по развитию центра мониторинга внешних цифровых угроз Solar AURA", min:15, max:75, ta:true,
+   ex:"Директор по развитию центра мониторинга внешних цифровых угроз Solar AURA"},
+  {k:"Title", label:"Тема эфира", ph:"Тренды информационной безопасности 2026: аналитика и прогнозы", min:30, max:75, ta:true,
+   ex:"Тренды информационной безопасности 2026: аналитика, кейсы, прогнозы"},
+  {k:C1, label:"Тезис 1", ph:"Поделимся аналитикой инцидентов ИБ за 2025 год и прогнозами на 2026-й", min:25, max:75, ta:true,
+   ex:"Поделимся аналитикой инцидентов ИБ за 2025 год и прогнозами на 2026-й"},
+  {k:C2, label:"Тезис 2", ph:"Расскажем о трендах внешних цифровых угроз – утечек и фишинга", min:25, max:75, ta:true,
+   ex:"Расскажем о трендах внешних цифровых угроз – утечек и фишинга"},
+  {k:C3, label:"Тезис 3", ph:"Заглянем под капот SOC и покажем, какую роль играют TI-фиды", min:25, max:75, ta:true,
+   ex:"Заглянем под капот SOC и покажем, какую роль в его работе играют TI-фиды"}
 ];
+const lenState = x => { const n=P.f[x.k].trim().length; return !n ? "empty" : n<x.min ? "short" : n>x.max ? "long" : "ok"; };
+const cntText = x => { const n=P.f[x.k].length, st=lenState(x);
+  return st==="short" ? `${n} · мало, нужно от ${x.min}` : st==="long" ? `${n} · больше ${x.max}` : `${n} / ${x.max}`; };
 const P = {
   step:0, f:{"Family name and Name":"","Job title":"","Title":"",[C1]:"",[C2]:"",[C3]:"",Day:"",Time:""},
   dateISO:"", src:null, tin:0, tout:0, t:0, logoT:null,
@@ -936,7 +952,7 @@ function setMode(m){
 function pCan(){
   const f=P.f;
   switch(P.step){
-    case 0: return P_FIELDS.every(x=>f[x.k].trim()) && /^\d\d\.\d\d$/.test(f.Day) && /^\d\d:\d\d$/.test(f.Time);
+    case 0: return P_FIELDS.every(x=>lenState(x)==="ok") && !P.fitBad && /^\d\d\.\d\d$/.test(f.Day) && /^\d\d:\d\d$/.test(f.Time);
     case 1: return !!P.src && pDur()>0;
     case 2: return pSpeech()>=1;
     case 3: return Object.values(P.formats).some(Boolean);
@@ -954,16 +970,18 @@ function pRender(){
   $("#back").style.visibility = P.step===0?"hidden":"visible";
   $("#next").textContent = P.step===P_STEPS.length-1 ? (live()?"Отправить в работу":"Скачать JSON") : "Дальше";
   $("#next").disabled = !pCan();
-  pBind(); pRenderRight();
+  pBind(); if(P.step===0) pFitWarn(); $("#next").disabled=!pCan(); pRenderRight();
 }
 
 const P_VIEWS = [
 /* 0 — тексты */
 () => `<h2>Тексты приглашения</h2>
   <p class="lead">Поля — это колонки master text.csv: скрипт подставит их во все форматы. Переносы строк расставит макет.</p>
-  ${P_FIELDS.map(x=>`<label class="f">${x.label}<span class="cnt ${P.f[x.k].length>x.max?'over':''}" data-cnt="${x.k}">${P.f[x.k].length}/${x.max}</span></label>
-    ${x.ta?`<textarea class="input" rows="2" style="min-height:0" data-pf="${x.k}" placeholder="${x.ph}">${esc(P.f[x.k])}</textarea>`
-          :`<input class="input" data-pf="${x.k}" placeholder="${x.ph}" value="${esc(P.f[x.k])}">`}`).join("")}
+  <p class="hint" style="margin:-8px 0 4px">Лимиты брифа: от ${Math.min(...P_FIELDS.map(x=>x.min))} до 75 знаков с пробелами — больше не влезет в поля блока, меньше — блок выглядит пустым.</p>
+  ${P_FIELDS.map(x=>`<label class="f">${x.label}<span class="cnt ${['short','long'].includes(lenState(x))?'over':''}" data-cnt="${x.k}">${cntText(x)}</span></label>
+    ${x.ta?`<textarea class="input" rows="2" style="min-height:0" maxlength="${x.max}" data-pf="${x.k}" placeholder="${x.ph}">${esc(P.f[x.k])}</textarea>`
+          :`<input class="input" maxlength="${x.max}" data-pf="${x.k}" placeholder="${x.ph}" value="${esc(P.f[x.k])}">`}`).join("")}
+  <div id="fitWarn" class="hidden"></div>
   <div class="frow">
     <div><label class="f">Дата эфира</label><input class="input" type="date" id="pDate" value="${P.dateISO}"></div>
     <div><label class="f">Время, МСК</label><input class="input" type="time" id="pTime" value="${esc(P.f.Time)}"></div>
@@ -1037,12 +1055,12 @@ function pBind(){
   B.querySelectorAll("[data-pf]").forEach(el=>el.oninput=()=>{
     const k=el.dataset.pf; P.f[k]=el.value.replace(/[\r\n]+/g," ");
     const x=P_FIELDS.find(f=>f.k===k), c=B.querySelector(`[data-cnt="${CSS.escape(k)}"]`);
-    if(c){ c.textContent=`${P.f[k].length}/${x.max}`; c.classList.toggle("over",P.f[k].length>x.max); }
-    $("#next").disabled=!pCan(); pRenderRight();
+    if(c){ c.textContent=cntText(x); c.classList.toggle("over",["short","long"].includes(lenState(x))); }
+    pFitWarn(); $("#next").disabled=!pCan(); pRenderRight();
   });
   const d=$("#pDate"); if(d) d.oninput=()=>{ P.dateISO=d.value; const m=/^\d{4}-(\d\d)-(\d\d)$/.exec(d.value); P.f.Day=m?`${m[2]}.${m[1]}`:""; render(); };
   const tm=$("#pTime"); if(tm) tm.onchange=()=>{ P.f.Time=tm.value; render(); };
-  $("#pDemoText")?.addEventListener("click",()=>{ Object.assign(P.f,{"Family name and Name":"Алексей Вишняков","Job title":"Технический директор департамента IdM","Title":"Новая IdM-реальность: результаты внедрений коробочной версии с самостоятельной установкой",[C1]:"Как мы решились на создание коробочной версии IdM",[C2]:"Результаты исследований и первых проектов",[C3]:"Функциональность «коробки» и эффект внедрения для любого сегмента",Day:"04.10",Time:"12:00"}); P.dateISO=new Date().getFullYear()+"-10-04"; render(); });
+  $("#pDemoText")?.addEventListener("click",()=>{ P_FIELDS.forEach(x=>P.f[x.k]=x.ex); Object.assign(P.f,{Day:"03.03",Time:"12:00"}); P.dateISO=new Date().getFullYear()+"-03-03"; render(); });
   // видео
   const u=$("#pUrl"); if(u) u.oninput=()=>{ const v=u.value.trim(); if(/^https?:\/\/(disk\.yandex\.(ru|com)|yadi\.sk)\//.test(v)){ if(P.src?.url!==v) pSetLink(v); } else if(P.src?.kind==='link'){ P.src=null; render(); } };
   const pd=$("#pDurIn"); if(pd) pd.oninput=()=>{ P.src.duration=parseFloat(pd.value)||0; P.tin=0; P.tout=P.src.duration; $("#next").disabled=!pCan(); };
@@ -1089,17 +1107,84 @@ $("#fileIn").onchange=e=>{ const f=e.target.files[0]; if(f){ (MODE==="priglos"?p
 function pVidHTML(){
   return P.src?.src ? `<video id="ppv" src="${esc(P.src.src)}" playsinline preload="metadata"></video>` : `<div class="who"></div>`;
 }
-function pLayoutHTML(fmtId){
-  const f=P.f, ph=(v,d)=>v.trim()?esc(v):`<span class="ph">${d}</span>`;
-  return `<div class="pv f${fmtId}"><div class="vid">${pVidHTML()}</div>
-    <div class="txt">
-      <span class="badge">ПРЯМОЙ ЭФИР</span>
-      <div class="when"><span>${ph(f.Day,"ДД.ММ")}</span><span>${ph(f.Time,"ЧЧ:ММ")}</span></div>
-      <div class="ttl">${ph(f.Title,"Тема эфира")}</div>
-      <div class="pts">${[C1,C2,C3].map((k,i)=>`<div class="pt"><b>0${i+1}</b><span>${ph(f[k],"Тезис "+(i+1))}</span></div>`).join("")}</div>
-      <div class="who2"><b>${ph(f["Family name and Name"],"Имя Фамилия")}</b><span>${ph(f["Job title"],"Должность")}</span><i>ГК «Солар»</i></div>
-    </div><span class="note">схема раскладки · точный вид — в AE</span></div>`;
+// Геометрия в пикселях композиции. 16_9 — снято со скриншота проекта AE (1920×1080) один в один;
+// 1_1, 4_5, 9_16 — те же блоки, раскладка предварительная (уточнить по скринам композиций).
+const P_GEO = {
+  "16_9":{W:1920,H:1080, exact:true,
+    vid:[69,77,1058,712], logo:[43,39,238],
+    ttl:[1144,77,708,206], ttlPad:[45,40], ttlFs:34, ttlLh:39, ttlLs:-0.036,
+    cnt:[1144,295,708,494], cntPad:[58,34,16], numW:50, cntFs:35.5, cntLh:41, cntLs:-0.025, numFs:28, gap:15,
+    pill:[73,808,834,194], pillPad:[79,18], pillFs:35, pillLh:41.5,
+    circ:[1029,911,103],
+    org:[1148,804,699,192], orgPad:82, orgFs:53, orgLh:58.5, orgGap:22},
+  "9_16":{W:1080,H:1920,
+    vid:[60,60,960,700], logo:[40,40,200],
+    ttl:[60,780,960,236], ttlPad:[40,44], ttlFs:42, ttlLh:48, ttlLs:-0.03,
+    cnt:[60,1032,960,472], cntPad:[46,40,20], numW:58, cntFs:39, cntLh:45, cntLs:-0.015, numFs:31, gap:20,
+    pill:[60,1724,768,150], pillPad:[52,20], pillFs:27, pillLh:32,
+    circ:[946,1799,74],
+    org:[60,1520,960,184], orgPad:52, orgFs:58, orgLh:64, orgGap:26},
+  "4_5":{W:1080,H:1350,
+    vid:[48,48,984,560], logo:[36,34,190],
+    ttl:[48,624,600,200], ttlPad:[30,30], ttlFs:29, ttlLh:34, ttlLs:-0.03,
+    cnt:[48,840,984,302], cntPad:[30,32,18], numW:46, cntFs:28, cntLh:33, cntLs:-0.015, numFs:23, gap:12,
+    pill:[48,1158,800,144], pillPad:[46,18], pillFs:26, pillLh:31,
+    circ:[960,1230,72],
+    org:[664,624,368,200], orgPad:30, orgFs:40, orgLh:44, orgGap:14},
+  "1_1":{W:1080,H:1080,
+    vid:[40,40,1000,420], logo:[34,32,170],
+    ttl:[40,476,580,170], ttlPad:[30,28], ttlFs:26, ttlLh:30, ttlLs:-0.03,
+    cnt:[40,662,1000,236], cntPad:[22,28,16], numW:40, cntFs:24, cntLh:28, cntLs:-0.015, numFs:20, gap:9,
+    pill:[40,914,830,126], pillPad:[42,16], pillFs:23, pillLh:27,
+    circ:[968,977,63],
+    org:[636,476,404,170], orgPad:30, orgFs:40, orgLh:44, orgGap:14}
+};
+// капитель как в проекте: прописные — полного размера, строчные — уменьшенными прописными (в Onest нет кириллической капители)
+function smc(t){ return String(t).split(/([a-zа-яё]+)/).map((p,i)=>i%2?`<span class="smc">${esc(p.toUpperCase())}</span>`:esc(p)).join(""); }
+function pLayoutHTML(fmtId, noVideo){
+  const g=P_GEO[fmtId], f=P.f;
+  const val = (k,caps) => { const x=P_FIELDS.find(q=>q.k===k), v=f[k].trim(), show=caps?smc:esc;
+    const nb = h => h.replace(/(\S)-(\S)/g,"$1\u2011$2");
+    return v ? `<span class="${x&&v.length>x.max?'over':''}">${nb(show(v))}</span>` : `<span class="ex">${nb(show(x?x.ex:""))}</span>`; };
+  const box = (r,extra="") => `left:${r[0]}px;top:${r[1]}px;width:${r[2]}px;height:${r[3]}px;${extra}`;
+  const arrowS = g.circ[2]*1.12;
+  return `<div class="pvw" data-w="${g.W}" data-h="${g.H}"><div class="fr" style="width:${g.W}px;height:${g.H}px">
+    <div class="b vid" style="${box(g.vid)}">${noVideo?'<div class="who"></div>':pVidHTML()}
+      <img alt="Solar" src="${LOGO.white}" style="left:${g.logo[0]}px;top:${g.logo[1]}px;width:${g.logo[2]}px"></div>
+    <div class="b ttl" style="${box(g.ttl,`padding:${g.ttlPad[0]}px ${g.ttlPad[1]}px;font-size:${g.ttlFs}px;line-height:${g.ttlLh}px;letter-spacing:${g.ttlLs||0}em`)}">${val("Title")}</div>
+    <div class="b pts" style="${box(g.cnt,`padding:${g.cntPad[0]}px ${g.cntPad[2]??g.cntPad[1]}px ${g.cntPad[0]}px ${g.cntPad[1]}px;gap:${g.gap}px;font-size:${g.cntFs}px;line-height:${g.cntLh}px;letter-spacing:${g.cntLs||0}em`)}">
+      ${[C1,C2,C3].map((k,i)=>`<div class="it" style="grid-template-columns:${g.numW}px 1fr"><b style="font-size:${g.numFs}px;letter-spacing:.04em">0${i+1}</b>${val(k)}</div>`).join("")}</div>
+    <div class="b spk" style="${box(g.pill,`border-radius:${g.pill[3]/2}px;padding:0 ${g.pillPad[1]??g.pillPad}px 0 ${g.pillPad[0]??g.pillPad}px;font-size:${g.pillFs}px;line-height:${g.pillLh}px;letter-spacing:-.04em`)}">
+      <div>${val("Family name and Name",true)}</div><div>${val("Job title",true)} ${smc("ГК «Солар»")}</div></div>
+    <div class="b circ" style="left:${g.circ[0]-g.circ[2]}px;top:${g.circ[1]-g.circ[2]}px;width:${g.circ[2]*2}px;height:${g.circ[2]*2}px">
+      <svg width="${arrowS}" height="${arrowS}" viewBox="0 0 64 64" fill="none" stroke="#EE804D" stroke-width="3.6"><path d="M5 59 L59 5 M10 5 H59 V54"/></svg></div>
+    <div class="b org" style="${box(g.org,`padding:0 ${g.orgPad}px;align-items:center;gap:${g.orgGap}px;font-size:${g.orgFs}px;line-height:${g.orgLh}px`)}">
+      <div class="dt" style="letter-spacing:.035em"><div>${f.Day?esc(f.Day):'<span class="ex">03.03</span>'}</div><div class="t">${f.Time?esc(f.Time):'<span class="ex">12:00</span>'}</div></div>
+      <div style="letter-spacing:-.02em">ПРЯМОЙ<br>ЭФИР</div></div>
+  </div></div>${g.exact?'':`<p class="fmtnote">Раскладка ${fmtId} — предварительная: пришлите скрин композиции, сделаю один в один, как 16:9.</p>`}`;
 }
+const FIT_BLOCKS = {ttl:"тема эфира", pts:"тезисы", spk:"имя и должность"};
+function pOverflow(fmtId="16_9"){
+  if(!P_FIELDS.some(x=>P.f[x.k].trim())) return [];
+  const host=document.createElement("div"); host.style.cssText="position:fixed;left:-99999px;top:0;visibility:hidden";
+  host.innerHTML=pLayoutHTML(fmtId,true); document.body.appendChild(host);
+  const out=[]; host.querySelectorAll(".fr .b").forEach(b=>{ const k=Object.keys(FIT_BLOCKS).find(c=>b.classList.contains(c));
+    if(k && b.scrollHeight>b.clientHeight+1) out.push(k); });
+  host.remove(); return out;
+}
+function pFitWarn(){
+  const el=$("#fitWarn"); if(!el) return;
+  const o=pOverflow(); P.fitBad=o.length>0;
+  el.className = o.length ? "fitwarn" : "hidden";
+  el.innerHTML = o.length ? `<b>Не влезет в макет 16:9:</b> ${o.map(k=>FIT_BLOCKS[k]).join(", ")}. Сократите текст — блоки в проекте фиксированного размера.${o.includes("pts")?" Три тезиса вместе помещаются в 8 строк: если все длинные, сократите один.":""}` : "";
+}
+function pFit(){
+  document.querySelectorAll("#pRight .pvw").forEach(w=>{
+    const W=+w.dataset.w, H=+w.dataset.h, cw=w.parentElement.clientWidth, k=Math.min(cw/W, 620/H);
+    w.style.width=W*k+"px"; w.style.height=H*k+"px"; w.firstElementChild.style.transform=`scale(${k})`;
+  });
+}
+addEventListener("resize",()=>{ if(MODE==="priglos") pFit(); });
 function pTrimHTML(){
   return `<div class="pv trim"><div class="vid">${pVidHTML()}</div>
     <video class="lshot hidden" id="plogo" src="assets/logoshot.mp4" muted playsinline preload="auto"></video>
@@ -1114,7 +1199,7 @@ function pRenderRight(){
     <div class="card">
       ${showFmt?`<div class="fmts">${P_FORMATS.map(f=>`<button class="${P.view===f.id?'on':''}" data-pview="${f.id}">${f.name}</button>`).join("")}</div>`:""}
       ${trim? pTrimHTML() : pLayoutHTML(P.view)}
-      <div class="cardfoot"><b>${trim?'Запись и логошот':'Композиция '+P.view}</b><span class="tc" id="ptc"></span></div>
+      <div class="cardfoot"><b>${trim?'Запись и логошот':'Композиция '+P.view+(P_GEO[P.view].exact?' · как в проекте':'')}</b><span class="tc" id="ptc"></span></div>
     </div>
     ${trim && pDur()>0 ? `<div class="card">
       <div class="tlbar"><b style="font-size:15px">Обрезка</b><span class="tc" style="margin-left:auto">белые метки — начало и конец речи</span></div>
@@ -1125,7 +1210,7 @@ function pRenderRight(){
   $("#pPlay")?.addEventListener("click",()=>pPlaying?pStop():pPlay());
   const v=$("#ppv"); if(v){ v.muted=false; try{ v.currentTime=P.t; }catch(e){} v.ontimeupdate=()=>{ if(!pPlaying) return; P.t=v.currentTime; if(P.t>=P.tout) pStartLogo(); pTick(); }; }
   if(trim && pDur()>0){ pDrawTL(); pBindTL(); }
-  pTick();
+  pFit(); pTick();
 }
 function pDomain(){ return pDur()+P_LOGO_DUR; }   // постоянный масштаб: место под логошот есть всегда
 function pDrawTL(){

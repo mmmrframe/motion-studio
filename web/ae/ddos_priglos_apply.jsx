@@ -23,6 +23,11 @@ var LAYER_COLUMN = {
     "Content 1": 3, "Content 2": 4, "Content 3": 5,
     "Day": 6, "Calendar": 6, "Date": 6, "Time": 7
 };
+// лимиты из брифа (те же, что в форме): текст не выходит за поля блоков
+var LIMITS = {
+    "Family name and Name": [5, 30], "Job title": [15, 75], "Title": [30, 75],
+    "\u0421ontent 1": [25, 75], "\u0421ontent 2": [25, 75], "\u0421ontent 3": [25, 75]
+};
 var LOG = [], WARN = [];
 
 // ------------------------------------------------------------------ JSON (ExtendScript без JSON — свой парсер, без eval)
@@ -142,6 +147,13 @@ var dir = jf.parent.fsName;
 
 app.beginUndoGroup("DDoS priglos: " + (J.csv && J.csv["Family name and Name"] || "заявка"));
 try {
+
+    // ---------------- 0. длины текстов
+    for (var lk in LIMITS) {
+        var tv = String(J.csv[lk] || "").replace(/^\s+|\s+$/g, ""), lm = LIMITS[lk];
+        if (tv.length > lm[1]) WARN.push("«" + lk + "»: " + tv.length + " знаков при лимите " + lm[1] + " — текст может выйти за поля блока.");
+        else if (tv.length < lm[0]) WARN.push("«" + lk + "»: " + tv.length + " знаков — меньше " + lm[0] + ", блок будет выглядеть пустым.");
+    }
 
     // ---------------- 1. CSV
     var csvItem = findItem(CSV_NAME, FootageItem);
