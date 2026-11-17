@@ -59,6 +59,29 @@ export default {
       const { payload, prompt } = await req.json();
       payload.customer = customer;
       const p = payload;
+      // DDoS priglos: агент не нужен — в задаче лежит JSON, дизайнер применяет его скриптом ddos_priglos_apply.jsx
+      if (p.type === "ddos_priglos") {
+        const c = p.csv || {};
+        const body = [
+          `**Заказчик:** ${customer} · ${p.contact}`,
+          p.kaiten ? `**Кайтен:** #${p.kaiten}` : "",
+          `**Спикер:** ${c["Family name and Name"]} — ${c["Job title"]}`,
+          `**Эфир:** ${c.Day} ${c.Time} · ${c.Title}`,
+          `**Видео:** ${p.video.file}${p.video.url ? " · " + p.video.url : ""}${p.video.upload ? " · R2: " + p.video.upload : ""}`,
+          `**Обрезка:** ${p.video.trim_in}–${p.video.trim_out} с · логошот с ${p.timeline.logoshot_start} с · ролик ${p.timeline.total} с`,
+          `**Форматы:** ${p.formats.join(", ")}`,
+          p.notes ? `**Пожелания:** ${p.notes}` : "",
+          "",
+          "Применить: сохранить JSON ниже рядом с видео → AE → File → Scripts → Run Script File → `ddos_priglos_apply.jsx`.",
+          "",
+          "<!-- request-json -->\n```json\n" + JSON.stringify(p, null, 2) + "\n```",
+        ].filter(Boolean).join("\n");
+        const r = await gh("/issues", { method: "POST", body: JSON.stringify({ title: `DDoS priglos: ${c["Family name and Name"]} · ${c.Day}`, body, labels: ["ddos-priglos", "status:queued"] }) });
+        if (!r.ok) return json({ error: await r.text() }, 502);
+        const issue = await r.json();
+        await env.KEYS.put(`req:${issue.number}`, key);
+        return json({ id: issue.number, issue_url: issue.html_url });
+      }
       const body = [
         `**Заказчик:** ${customer} · ${p.contact}`,
         p.kaiten ? `**Кайтен:** #${p.kaiten}` : "",

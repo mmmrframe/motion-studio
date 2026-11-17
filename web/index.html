@@ -237,6 +237,88 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
 .toast.show{opacity:1;transform:translateX(-50%)}
 .hidden{display:none!important}
 @media (max-width:1100px){.grid{grid-template-columns:1fr}.banner{flex-direction:column;align-items:stretch}.wrap{padding:0 20px 60px}}
+
+/* ===== DDoS priglos ===== */
+.seg.three{grid-template-columns:1fr 1.15fr .85fr}
+.seg.three button{padding:11px 4px;white-space:nowrap}
+.seg.three small{display:none}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cnt{float:right;font-weight:500;font-size:12px;color:var(--dim)}
+.cnt.over{color:var(--acc2)}
+.pv{position:relative;margin:0 auto;border-radius:12px;overflow:hidden;background:#2B323A;container-type:size;color:#fff}
+.pv.f16_9{aspect-ratio:16/9;width:100%}
+.pv.f1_1{aspect-ratio:1/1;height:min(560px,60vw)}
+.pv.f4_5{aspect-ratio:4/5;height:min(580px,62vw)}
+.pv.f9_16{aspect-ratio:9/16;height:min(620px,66vw)}
+.pv .vid{position:absolute;overflow:hidden;background:linear-gradient(160deg,#5b636b,#3a4148)}
+.pv .vid video,.pv .vid .who{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pv .who{display:grid;place-items:end center}
+.pv .who:before{content:"";width:34%;aspect-ratio:1;border-radius:50%;background:#8a9198;position:absolute;top:24%;left:33%}
+.pv .who:after{content:"";width:64%;height:34%;border-radius:45% 45% 0 0;background:#8a9198;position:absolute;bottom:0;left:18%}
+.pv .txt{position:absolute;display:flex;flex-direction:column;gap:2.2cqh}
+.pv .badge{align-self:flex-start;background:#FE6E36;color:#fff;font:700 2.1cqh/1 Inter,sans-serif;letter-spacing:.08em;padding:.7cqh 1.3cqh;border-radius:99px}
+.pv .when{display:flex;gap:2cqh;font:600 2.6cqh/1 Inter,sans-serif;color:#FE6E36}
+.pv .ttl{font:700 4.4cqh/1.1 Inter,sans-serif;letter-spacing:-.01em}
+.pv .pts{display:grid;gap:1.3cqh}
+.pv .pt{display:grid;grid-template-columns:5cqh 1fr;gap:1.2cqh;font:500 2.2cqh/1.3 Inter,sans-serif;color:#d7dade}
+.pv .pt b{color:#FE6E36;font-weight:700}
+.pv .who2{margin-top:auto;display:grid;gap:.6cqh}
+.pv .who2 b{font:700 2.8cqh/1.15 Inter,sans-serif}
+.pv .who2 span{font:500 2cqh/1.3 Inter,sans-serif;color:#b9bec4}
+.pv .who2 i{font:600 1.9cqh/1 Inter,sans-serif;font-style:normal;color:#FE6E36;margin-top:.6cqh}
+.pv .note{position:absolute;right:1.5cqh;bottom:1.2cqh;font:500 1.5cqh/1 Inter,sans-serif;color:rgba(255,255,255,.45)}
+.pv .ph{color:rgba(255,255,255,.35)}
+/* раскладки форматов (схема) */
+.pv.f16_9 .vid{right:0;top:0;bottom:0;width:46%}
+.pv.f16_9 .txt{left:5%;top:8%;bottom:8%;width:44%}
+.pv.f1_1 .vid{left:0;right:0;top:0;height:46%}
+.pv.f1_1 .txt{left:6%;right:6%;top:50%;bottom:5%;gap:1.6cqh}
+.pv.f1_1 .ttl{font-size:3.6cqh}
+.pv.f4_5 .vid{left:0;right:0;top:0;height:44%}
+.pv.f4_5 .txt{left:6%;right:6%;top:48%;bottom:4%;gap:1.6cqh}
+.pv.f4_5 .ttl{font-size:3.4cqh}
+.pv.f9_16 .vid{left:0;right:0;top:0;height:40%}
+.pv.f9_16 .txt{left:7%;right:7%;top:44%;bottom:4%;gap:1.8cqh}
+.pv.f9_16 .ttl{font-size:3.1cqh}
+.pv.f9_16 .pt{font-size:1.75cqh}
+/* обрезка */
+.pv.trim{aspect-ratio:16/9;width:100%;background:#000}
+.pv.trim .vid{inset:0}
+.pv .lshot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#efecea;z-index:3}
+.pv .cutmark{position:absolute;left:1.5cqh;top:1.5cqh;z-index:4;background:rgba(10,10,11,.75);font:600 3.2cqh/1 Inter,sans-serif;padding:1cqh 1.6cqh;border-radius:1cqh}
+.pv .cutmark.bad{background:rgba(229,72,77,.85)}
+.pv .cutmark.logo{background:#FE6E36}
+.fmts{display:flex;gap:6px;justify-content:center;margin:0 0 14px}
+.fmts button{border:1px solid var(--line2);border-radius:9px;padding:6px 12px;font-size:13px;font-weight:600;color:var(--mute)}
+.fmts button.on{border-color:var(--acc);color:var(--text);background:var(--accbg)}
+.trimtl{position:relative;height:64px;background:var(--field);border:1px solid var(--line2);border-radius:12px;overflow:hidden;cursor:pointer;touch-action:none}
+.trimtl .bad{position:absolute;top:0;bottom:0;background:repeating-linear-gradient(135deg,rgba(229,72,77,.18) 0 6px,rgba(229,72,77,.07) 6px 12px)}
+.trimtl .keep{position:absolute;top:0;bottom:0;background:rgba(255,255,255,.05)}
+.trimtl .lg{position:absolute;top:30%;height:40%;background:#FE6E36;border-radius:6px;display:flex;align-items:center;justify-content:center;font:700 11px Inter,sans-serif;color:#1a0d06;white-space:nowrap;overflow:hidden;opacity:.95}
+.trimtl .hd{position:absolute;top:0;bottom:0;width:14px;margin-left:-7px;cursor:ew-resize;display:flex;justify-content:center;z-index:3}
+.trimtl .hd:before{content:"";width:4px;height:100%;background:#fff;border-radius:2px}
+.trimtl .hd span{position:absolute;top:2px;font:600 10px Inter,sans-serif;background:#fff;color:#111;border-radius:4px;padding:1px 4px;white-space:nowrap}
+.trimtl .hd.in span{left:8px}.trimtl .hd.out span{right:8px}
+.trimtl .ph{position:absolute;top:0;bottom:0;width:2px;background:var(--acc2);z-index:2;pointer-events:none}
+.tstat{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+.tstat div{border:1px solid var(--line2);background:var(--field);border-radius:12px;padding:10px 12px}
+.tstat small{display:block;color:var(--mute);font-size:12px}
+.tstat b{font:600 17px "JetBrains Mono",monospace}
+.tstat .o b{color:var(--acc2)}
+.trimrow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.trimrow .input{font-family:"JetBrains Mono",monospace}
+.fcards{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.fcard{border:1px solid var(--line2);background:var(--field);border-radius:14px;padding:12px 6px 10px;display:flex;flex-direction:column;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.fcard i{display:block;border:2px solid var(--mute);border-radius:4px}
+.fcard.on{border-color:var(--acc);background:var(--accbg);box-shadow:inset 0 0 0 1px var(--acc)}
+.fcard.on i{border-color:var(--acc)}
+.fcard small{font-size:11px;font-weight:500;color:var(--dim)}
+.dl{display:grid;gap:8px;margin:16px 0 4px}
+.dl .btn{display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:var(--text)}
+.dl .btn small{color:var(--mute);font-weight:500}
+.how{background:var(--field);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--mute);margin-top:12px}
+.how ol{padding-left:18px;display:grid;gap:4px}
+.how b{color:var(--text)}
 </style>
 </head>
 <body>
@@ -256,8 +338,9 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
 
   <div class="grid">
     <section class="panel" id="left">
-      <div class="seg">
-        <button class="on">Скринкаст</button>
+      <div class="seg three">
+        <button class="on" data-mode="screencast">Скринкаст</button>
+        <button data-mode="priglos">DDoS priglos</button>
         <button title="Скоро" onclick="toast('2D-ролики пока принимаем через YouGile')">2D ролик<small>скоро</small></button>
       </div>
       <div class="bars" id="bars"></div>
@@ -268,7 +351,7 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
       </div>
     </section>
 
-    <section id="right">
+    <section id="right"><div id="scRight">
       <div class="rhead">
         <div><h3>Предпросмотр</h3><p id="rsub">Шаг 1 из 6 · Запись</p></div>
         <button class="btn sm" id="copyPrompt">Скопировать промт</button>
@@ -301,13 +384,14 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
           <pre id="promptPre"></pre>
         </details>
       </div>
-    </section>
+    </div><div id="pRight" class="hidden"></div></section>
   </div>
 </div>
-<input type="file" id="fileIn" accept="video/*" class="hidden">
+<input type="file" id="fileIn" accept="video/*,.mov,.mxf" class="hidden">
 <div class="toast" id="toast"></div>
 
 <script>
+let MODE="screencast";
 /* ====== НАСТРОЙКИ ====== */
 const CONFIG = {
   WORKER_URL: "",              // https://motion-studio-api.<account>.workers.dev — пусто = демо-режим
@@ -390,6 +474,7 @@ function sceneHTML(id, {mini=false, withVideo=false, captions=""}={}){
 
 /* ---------- steps ---------- */
 function renderBars(){
+  $("#bars").style.gridTemplateColumns="";
   $("#bars").innerHTML = STEPS.map((n,i)=>{
     let c = i===S.step?"cur": (i===4&&skipCaps()?"skip": i<S.step?"done":"");
     return `<button class="${c}" title="${n}${i===4&&skipCaps()?' — не нужно':''}" data-go="${i}"></button>`;
@@ -507,6 +592,7 @@ function go(i){
 }
 
 function render(){
+  if(MODE==="priglos") return pRender();
   if(S.sent) return renderSent();
   renderBars();
   $("#stepBody").innerHTML = VIEWS[S.step]();
@@ -735,8 +821,9 @@ function renderPrompt(){ $("#promptPre").textContent = buildPrompt() + "\n\n--- 
 $("#copyPrompt").onclick=()=>{ navigator.clipboard?.writeText(buildPrompt()).then(()=>toast("Промт скопирован"),()=>toast("Не удалось скопировать")); };
 
 /* ---------- submit ---------- */
-$("#back").onclick=()=>go(S.step-1);
-$("#next").onclick=async()=>{
+$("#back").onclick=()=>MODE==="priglos"?pGo(P.step-1):go(S.step-1);
+const nextHandler=async()=>{
+  if(MODE==="priglos") return pNext();
   if(!canNext()) return;
   if(S.step<5) return go(S.step+1);
   const btn=$("#next"); btn.disabled=true;
@@ -753,6 +840,7 @@ $("#next").onclick=async()=>{
     S.sent={id:j.id, state:"queued", issue:j.issue_url, download:null}; renderSent(); poll();
   }catch(e){ btn.disabled=false; btn.textContent="Отправить в работу"; toast("Ошибка: "+e.message); }
 };
+$("#next").onclick=nextHandler;
 async function api(path,body){
   const r=await fetch(CONFIG.WORKER_URL+path,{method:body?"POST":"GET",headers:{"Content-Type":"application/json","X-Access-Key":S.key},body:body?JSON.stringify(body):undefined});
   if(!r.ok) throw new Error((await r.text())||r.status); return r.json();
@@ -805,6 +893,350 @@ $("#keyIn").onkeydown=e=>{ if(e.key==="Enter") applyKey($("#keyIn").value.trim()
   if(q.get("key")) history.replaceState(null,"",location.pathname+(S.kaiten?`?kaiten=${S.kaiten}`:""));
   applyKey(k);
 })();
+</script>
+<script>
+/* ====================== DDoS priglos ====================== */
+const P_STEPS = ["Тексты","Видео спикера","Обрезка","Форматы","Отправка"];
+const P_LOGO_DUR = 3.68;            // как в проекте: логошот 34.48 → конец рабочей области 38.16
+const P_FORMATS = [
+  {id:"16_9", name:"16:9", w:28, h:16}, {id:"1_1", name:"1:1", w:20, h:20},
+  {id:"4_5",  name:"4:5",  w:18, h:22}, {id:"9_16", name:"9:16", w:14, h:24}
+];
+// Ключи = заголовки master text.csv (в «Сontent» первая буква — кириллическая С)
+const C1="\u0421ontent 1", C2="\u0421ontent 2", C3="\u0421ontent 3";
+const P_FIELDS = [
+  {k:"Family name and Name", label:"Имя и фамилия спикера", ph:"Алексей Вишняков", max:32},
+  {k:"Job title", label:"Должность", ph:"Технический директор департамента IdM", max:70, ta:true},
+  {k:"Title", label:"Тема эфира", ph:"Новая IdM-реальность: результаты внедрений коробочной версии", max:110, ta:true},
+  {k:C1, label:"Тезис 1", ph:"Как мы решились на создание коробочной версии", max:80, ta:true},
+  {k:C2, label:"Тезис 2", ph:"Результаты исследований и первых проектов", max:80, ta:true},
+  {k:C3, label:"Тезис 3", ph:"Функциональность «коробки» и эффект внедрения", max:80, ta:true}
+];
+const P = {
+  step:0, f:{"Family name and Name":"","Job title":"","Title":"",[C1]:"",[C2]:"",[C3]:"",Day:"",Time:""},
+  dateISO:"", src:null, tin:0, tout:0, t:0, logoT:null,
+  formats:{"16_9":true,"1_1":true,"4_5":true,"9_16":true}, view:"16_9", rq:true, notes:"", sent:null
+};
+let pPlaying=false, pRaf=null, pLast=0;
+const pDur = () => P.src?.duration || 0;
+const pSpeech = () => Math.max(0, P.tout - P.tin);
+
+function setMode(m){
+  if(MODE===m) return;
+  pStop(); try{ setPlay(false); }catch(e){} stopTrack?.();
+  MODE=m;
+  document.querySelectorAll(".seg [data-mode]").forEach(b=>b.classList.toggle("on",b.dataset.mode===m));
+  $("#scRight").classList.toggle("hidden",m!=="screencast");
+  $("#pRight").classList.toggle("hidden",m!=="priglos");
+  try{ history.replaceState(null,"",location.pathname+location.search+(m==="priglos"?"#priglos":"")); }catch(e){}
+  $("#next").onclick = nextHandler;
+  render();
+}
+
+function pCan(){
+  const f=P.f;
+  switch(P.step){
+    case 0: return P_FIELDS.every(x=>f[x.k].trim()) && /^\d\d\.\d\d$/.test(f.Day) && /^\d\d:\d\d$/.test(f.Time);
+    case 1: return !!P.src && pDur()>0;
+    case 2: return pSpeech()>=1;
+    case 3: return Object.values(P.formats).some(Boolean);
+    case 4: return !!S.contact.trim();
+  }
+}
+function pGo(i){ pStop(); P.step=Math.max(0,Math.min(P_STEPS.length-1,i)); render(); }
+
+function pRender(){
+  if(P.sent) return pRenderSent();
+  const bars=$("#bars"); bars.style.gridTemplateColumns=`repeat(${P_STEPS.length},1fr)`;
+  bars.innerHTML=P_STEPS.map((n,i)=>`<button class="${i===P.step?'cur':i<P.step?'done':''}" title="${n}" data-pgo="${i}"></button>`).join("");
+  bars.querySelectorAll("[data-pgo]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.pgo; if(i<P.step) pGo(i); });
+  $("#stepBody").innerHTML = `<div class="stephead"><span class="n">${P.step+1}</span>${P_STEPS[P.step]}<span class="of">шаг ${P.step+1} из ${P_STEPS.length}</span></div>` + P_VIEWS[P.step]();
+  $("#back").style.visibility = P.step===0?"hidden":"visible";
+  $("#next").textContent = P.step===P_STEPS.length-1 ? (live()?"Отправить в работу":"Скачать JSON") : "Дальше";
+  $("#next").disabled = !pCan();
+  pBind(); pRenderRight();
+}
+
+const P_VIEWS = [
+/* 0 — тексты */
+() => `<h2>Тексты приглашения</h2>
+  <p class="lead">Поля — это колонки master text.csv: скрипт подставит их во все форматы. Переносы строк расставит макет.</p>
+  ${P_FIELDS.map(x=>`<label class="f">${x.label}<span class="cnt ${P.f[x.k].length>x.max?'over':''}" data-cnt="${x.k}">${P.f[x.k].length}/${x.max}</span></label>
+    ${x.ta?`<textarea class="input" rows="2" style="min-height:0" data-pf="${x.k}" placeholder="${x.ph}">${esc(P.f[x.k])}</textarea>`
+          :`<input class="input" data-pf="${x.k}" placeholder="${x.ph}" value="${esc(P.f[x.k])}">`}`).join("")}
+  <div class="frow">
+    <div><label class="f">Дата эфира</label><input class="input" type="date" id="pDate" value="${P.dateISO}"></div>
+    <div><label class="f">Время, МСК</label><input class="input" type="time" id="pTime" value="${esc(P.f.Time)}"></div>
+  </div>
+  <p class="hint">В ролик дата идёт как «${P.f.Day||'ДД.ММ'}», время — «${P.f.Time||'ЧЧ:ММ'}».</p>
+  <p class="hint" style="margin-top:14px"><span class="link" id="pDemoText">Заполнить примером</span></p>`,
+
+/* 1 — видео */
+() => `<h2>Видео спикера</h2>
+  <p class="lead">Запись целиком, как сняли: начало и конец обрежем на следующем шаге. Подойдёт MOV или MP4 с камеры.</p>
+  <label class="f">Ссылка на Яндекс Диск</label>
+  <input class="input" id="pUrl" placeholder="https://disk.yandex.ru/i/…" value="${P.src?.kind==='link'?esc(P.src.url):''}">
+  ${P.src?.kind==='link' && !P.src.src ? `<label class="f">Длительность записи <span>сек — для таймлайна</span></label>
+    <input class="input" id="pDurIn" type="number" min="1" step="0.1" value="${P.src.duration||''}" placeholder="например, 40.3">`:""}
+  <div class="or">или</div>
+  <div class="drop" id="pDrop"><b>Выбрать файл записи</b><span>с файлом обрезку видно прямо на видео</span></div>
+  ${P.src?`<div class="srcok"><div class="ic">▶</div><div><b>${esc(P.src.name)}</b><small>${P.src.kind==='file'?'Файл с компьютера':P.src.kind==='demo'?'Пример':'Яндекс Диск'} · ${P.src.duration?fmt(P.src.duration):'длительность не известна'}${P.src.unplayable?' · браузер не показывает этот формат':''}</small></div><button class="btn sm ghost" id="pClr">Убрать</button></div>`:""}
+  <p class="hint" style="margin-top:18px">Нет записи под рукой? <span class="link" id="pDemoSrc">Попробовать на примере</span></p>`,
+
+/* 2 — обрезка */
+() => `<h2>Обрезка брака</h2>
+  <p class="lead">Перетащите белые метки на полосе справа: всё до начала и после конца речи уйдёт. Логошот встанет сразу после последнего слова.</p>
+  <div class="trimrow">
+    <div><label class="f">Начало речи</label><input class="input" id="pTin" value="${fmt(P.tin)}"></div>
+    <div><label class="f">Конец речи</label><input class="input" id="pTout" value="${fmt(P.tout)}"></div>
+  </div>
+  <div class="trimrow" style="margin-top:10px">
+    <button class="btn sm" id="pSetIn">⇤ Начало здесь</button>
+    <button class="btn sm" id="pSetOut">Конец здесь ⇥</button>
+  </div>
+  <div class="tstat">
+    <div><small>Речь</small><b>${fmt(pSpeech())}</b></div>
+    <div class="o"><small>Логошот</small><b>${P_LOGO_DUR.toFixed(2)} с</b></div>
+    <div><small>Ролик</small><b>${fmt(pSpeech()+P_LOGO_DUR)}</b></div>
+  </div>
+  <p class="hint">Отрезается: в начале ${fmt(P.tin)}, в конце ${fmt(Math.max(0,pDur()-P.tout))}. «Здесь» — по текущему кадру (кликните по полосе). Время вводится как 0:12.4 или в секундах.</p>`,
+
+/* 3 — форматы */
+() => `<h2>Форматы</h2>
+  <p class="lead">Композиции проекта: скрипт обновит все, в очередь рендера поставит отмеченные.</p>
+  <div class="fcards">${P_FORMATS.map(f=>`<button class="fcard ${P.formats[f.id]?'on':''}" data-pfmt="${f.id}">
+    <i style="width:${f.w}px;height:${f.h}px"></i>${f.name}<small>${f.id}</small></button>`).join("")}</div>
+  <button class="switch ${P.rq?'on':''}" id="pRq"><div><b>Поставить в очередь рендера</b><span>${P.rq?'Отмеченные форматы, длина — до конца логошота':'Только обновить проект'}</span></div><i class="knob"></i></button>`,
+
+/* 4 — отправка */
+() => `<h2>Отправка</h2>
+  <p class="lead">Заявка собирается в JSON. Скрипт для AE читает его и сам расставляет тексты, обрезку и логошот.</p>
+  <dl class="sum">
+    <dt>Спикер</dt><dd>${esc(P.f["Family name and Name"])}<small>${esc(P.f["Job title"])}</small></dd>
+    <dt>Эфир</dt><dd>${esc(P.f.Day)} · ${esc(P.f.Time)}<small>${esc(P.f.Title)}</small></dd>
+    <dt>Видео</dt><dd>${esc(P.src?.name)}<small>речь ${fmt(P.tin)} – ${fmt(P.tout)} · логошот с ${fmt(pSpeech())} · ролик ${fmt(pSpeech()+P_LOGO_DUR)}</small></dd>
+    <dt>Форматы</dt><dd>${P_FORMATS.filter(f=>P.formats[f.id]).map(f=>f.name).join(", ")}${P.rq?'<small>в очередь рендера</small>':''}</dd>
+  </dl>
+  <label class="f">Контакт для связи</label>
+  <input class="input" id="pContact" placeholder="Имя и Telegram / почта" value="${esc(S.contact)}">
+  <label class="f">Пожелания <span>необязательно</span></label>
+  <textarea class="input" id="pNotes" placeholder="Например: нужно к четвергу, сначала 9:16">${esc(P.notes)}</textarea>
+  <div class="dl">
+    <button class="btn" id="pDlJson">⬇ JSON заявки <small>${esc(pJsonName())}</small></button>
+    <a class="btn" href="ae/ddos_priglos_apply.jsx" download="ddos_priglos_apply.jsx">⬇ Скрипт для AE <small>ddos_priglos_apply.jsx</small></a>
+  </div>
+  <div class="how"><ol>
+    <li>Положите <b>JSON</b> и <b>видео спикера</b> (${esc(P.src?.kind==='file'?P.src.name:'файл с Диска')}) в одну папку.</li>
+    <li>Откройте проект приглашения в AE → <b>File → Scripts → Run Script File</b> → <b>ddos_priglos_apply.jsx</b>.</li>
+    <li>Выберите JSON — скрипт обновит тексты, видео, логошот и очередь рендера. Отмена — одним Ctrl/Cmd+Z.</li>
+  </ol></div>`
+];
+
+function pBind(){
+  const B=$("#stepBody");
+  B.querySelectorAll("[data-pf]").forEach(el=>el.oninput=()=>{
+    const k=el.dataset.pf; P.f[k]=el.value.replace(/[\r\n]+/g," ");
+    const x=P_FIELDS.find(f=>f.k===k), c=B.querySelector(`[data-cnt="${CSS.escape(k)}"]`);
+    if(c){ c.textContent=`${P.f[k].length}/${x.max}`; c.classList.toggle("over",P.f[k].length>x.max); }
+    $("#next").disabled=!pCan(); pRenderRight();
+  });
+  const d=$("#pDate"); if(d) d.oninput=()=>{ P.dateISO=d.value; const m=/^\d{4}-(\d\d)-(\d\d)$/.exec(d.value); P.f.Day=m?`${m[2]}.${m[1]}`:""; render(); };
+  const tm=$("#pTime"); if(tm) tm.onchange=()=>{ P.f.Time=tm.value; render(); };
+  $("#pDemoText")?.addEventListener("click",()=>{ Object.assign(P.f,{"Family name and Name":"Алексей Вишняков","Job title":"Технический директор департамента IdM","Title":"Новая IdM-реальность: результаты внедрений коробочной версии с самостоятельной установкой",[C1]:"Как мы решились на создание коробочной версии IdM",[C2]:"Результаты исследований и первых проектов",[C3]:"Функциональность «коробки» и эффект внедрения для любого сегмента",Day:"04.10",Time:"12:00"}); P.dateISO=new Date().getFullYear()+"-10-04"; render(); });
+  // видео
+  const u=$("#pUrl"); if(u) u.oninput=()=>{ const v=u.value.trim(); if(/^https?:\/\/(disk\.yandex\.(ru|com)|yadi\.sk)\//.test(v)){ if(P.src?.url!==v) pSetLink(v); } else if(P.src?.kind==='link'){ P.src=null; render(); } };
+  const pd=$("#pDurIn"); if(pd) pd.oninput=()=>{ P.src.duration=parseFloat(pd.value)||0; P.tin=0; P.tout=P.src.duration; $("#next").disabled=!pCan(); };
+  const dr=$("#pDrop"); if(dr){ dr.onclick=()=>{ pickFile=pSetFile; $("#fileIn").click(); }; dr.ondragover=e=>{e.preventDefault();dr.classList.add("over")}; dr.ondragleave=()=>dr.classList.remove("over"); dr.ondrop=e=>{e.preventDefault();dr.classList.remove("over"); e.dataTransfer.files[0]&&pSetFile(e.dataTransfer.files[0]);}; }
+  $("#pDemoSrc")?.addEventListener("click",()=>{ P.src={kind:"demo",name:"P1155710.MOV (пример)",duration:40.32}; P.tin=2.76; P.tout=37.24; P.t=P.tin; render(); });
+  $("#pClr")?.addEventListener("click",()=>{ P.src=null; render(); });
+  // обрезка
+  const ti=$("#pTin"), to=$("#pTout");
+  if(ti) ti.onchange=()=>{ const v=parseT(ti.value); if(v!=null){ P.tin=Math.min(Math.max(0,v),P.tout-1); P.t=P.tin; } render(); };
+  if(to) to.onchange=()=>{ const v=parseT(to.value); if(v!=null){ P.tout=Math.max(Math.min(pDur(),v),P.tin+1); P.t=P.tout-1; } render(); };
+  $("#pSetIn")?.addEventListener("click",()=>{ P.tin=Math.min(P.t,P.tout-1); render(); });
+  $("#pSetOut")?.addEventListener("click",()=>{ P.tout=Math.max(P.t,P.tin+1); render(); });
+  // форматы
+  B.querySelectorAll("[data-pfmt]").forEach(b=>b.onclick=()=>{ P.formats[b.dataset.pfmt]=!P.formats[b.dataset.pfmt]; if(P.formats[b.dataset.pfmt]) P.view=b.dataset.pfmt; render(); });
+  $("#pRq")?.addEventListener("click",()=>{ P.rq=!P.rq; render(); });
+  // отправка
+  const pc=$("#pContact"); if(pc) pc.oninput=()=>{ S.contact=pc.value; store("ms_contact",pc.value); $("#next").disabled=!pCan(); };
+  const pn=$("#pNotes"); if(pn) pn.oninput=()=>{ P.notes=pn.value; };
+  $("#pDlJson")?.addEventListener("click",pDownload);
+}
+function parseT(s){ s=String(s).trim().replace(",","."); let m=/^(\d+):(\d+(?:\.\d+)?)$/.exec(s); if(m) return +m[1]*60+ +m[2]; m=/^\d+(?:\.\d+)?$/.exec(s); return m?+s:null; }
+
+/* ---- источник видео ---- */
+let pickFile=null;
+function pSetFile(f){
+  if(!/^video\//.test(f.type) && !/\.(mov|mp4|m4v|mxf|avi|mkv)$/i.test(f.name)) return toast("Нужен видеофайл");
+  const src=URL.createObjectURL(f);
+  P.src={kind:"file",name:f.name,file:f,size:f.size,src,duration:0};
+  const v=document.createElement("video"); v.preload="metadata"; v.src=src;
+  v.onloadedmetadata=()=>{ P.src.duration=Math.round(v.duration*100)/100; P.tin=0; P.tout=P.src.duration; P.t=0; render(); };
+  v.onerror=()=>{ P.src.unplayable=true; P.src.src=null; render(); toast("Браузер не открыл формат — укажите длительность, обрезку можно ввести вручную"); };
+  render();
+}
+async function pSetLink(url){
+  P.src={kind:"link",name:"Яндекс Диск · "+decodeURIComponent(url.split("/").pop()||"запись"),url,duration:0};
+  if(CONFIG.WORKER_URL){ try{ const r=await fetch(`${CONFIG.WORKER_URL}/yadisk?url=${encodeURIComponent(url)}`,{headers:{"X-Access-Key":S.key}}); const j=await r.json();
+    if(j.href){ P.src.name=j.name||P.src.name; P.src.src=j.href; const v=document.createElement("video"); v.preload="metadata"; v.src=j.href; v.onloadedmetadata=()=>{ P.src.duration=Math.round(v.duration*100)/100; P.tin=0; P.tout=P.src.duration; render(); }; } }catch(e){} }
+  const el=$("#pUrl"), pos=el?.selectionStart; render(); const n=$("#pUrl"); if(n){ n.focus(); try{n.setSelectionRange(pos,pos)}catch(e){} }
+}
+// общий input[type=file]: отдаём файл активной вкладке
+$("#fileIn").onchange=e=>{ const f=e.target.files[0]; if(f){ (MODE==="priglos"?pSetFile:setFile)(f); } e.target.value=""; };
+
+/* ---- правая колонка ---- */
+function pVidHTML(){
+  return P.src?.src ? `<video id="ppv" src="${esc(P.src.src)}" playsinline preload="metadata"></video>` : `<div class="who"></div>`;
+}
+function pLayoutHTML(fmtId){
+  const f=P.f, ph=(v,d)=>v.trim()?esc(v):`<span class="ph">${d}</span>`;
+  return `<div class="pv f${fmtId}"><div class="vid">${pVidHTML()}</div>
+    <div class="txt">
+      <span class="badge">ПРЯМОЙ ЭФИР</span>
+      <div class="when"><span>${ph(f.Day,"ДД.ММ")}</span><span>${ph(f.Time,"ЧЧ:ММ")}</span></div>
+      <div class="ttl">${ph(f.Title,"Тема эфира")}</div>
+      <div class="pts">${[C1,C2,C3].map((k,i)=>`<div class="pt"><b>0${i+1}</b><span>${ph(f[k],"Тезис "+(i+1))}</span></div>`).join("")}</div>
+      <div class="who2"><b>${ph(f["Family name and Name"],"Имя Фамилия")}</b><span>${ph(f["Job title"],"Должность")}</span><i>ГК «Солар»</i></div>
+    </div><span class="note">схема раскладки · точный вид — в AE</span></div>`;
+}
+function pTrimHTML(){
+  return `<div class="pv trim"><div class="vid">${pVidHTML()}</div>
+    <video class="lshot hidden" id="plogo" src="assets/logoshot.mp4" muted playsinline preload="auto"></video>
+    <span class="cutmark" id="pMark"></span></div>`;
+}
+function pRenderRight(){
+  const R=$("#pRight"), trim = P.step===1 || P.step===2;
+  const showFmt = !trim;
+  R.innerHTML = `
+    <div class="rhead"><div><h3>Предпросмотр</h3><p id="psub">Шаг ${P.step+1} из ${P_STEPS.length} · ${P_STEPS[P.step]}</p></div>
+      ${trim?`<button class="btn sm" id="pPlay">▶ Пуск</button>`:""}</div>
+    <div class="card">
+      ${showFmt?`<div class="fmts">${P_FORMATS.map(f=>`<button class="${P.view===f.id?'on':''}" data-pview="${f.id}">${f.name}</button>`).join("")}</div>`:""}
+      ${trim? pTrimHTML() : pLayoutHTML(P.view)}
+      <div class="cardfoot"><b>${trim?'Запись и логошот':'Композиция '+P.view}</b><span class="tc" id="ptc"></span></div>
+    </div>
+    ${trim && pDur()>0 ? `<div class="card">
+      <div class="tlbar"><b style="font-size:15px">Обрезка</b><span class="tc" style="margin-left:auto">белые метки — начало и конец речи</span></div>
+      <div class="trimtl" id="ptl"></div>
+      <div class="ticks" id="pticks"></div>
+    </div>`:""}`;
+  R.querySelectorAll("[data-pview]").forEach(b=>b.onclick=()=>{ P.view=b.dataset.pview; pRenderRight(); });
+  $("#pPlay")?.addEventListener("click",()=>pPlaying?pStop():pPlay());
+  const v=$("#ppv"); if(v){ v.muted=false; try{ v.currentTime=P.t; }catch(e){} v.ontimeupdate=()=>{ if(!pPlaying) return; P.t=v.currentTime; if(P.t>=P.tout) pStartLogo(); pTick(); }; }
+  if(trim && pDur()>0){ pDrawTL(); pBindTL(); }
+  pTick();
+}
+function pDomain(){ return pDur()+P_LOGO_DUR; }   // постоянный масштаб: место под логошот есть всегда
+function pDrawTL(){
+  const tl=$("#ptl"); if(!tl) return; const D=pDomain(), pc=t=>(t/D*100)+"%";
+  tl.innerHTML = `<div class="bad" style="left:0;width:${pc(P.tin)}"></div>
+    <div class="keep" style="left:${pc(P.tin)};width:${pc(P.tout-P.tin)}"></div>
+    <div class="bad" style="left:${pc(P.tout)};width:${pc(Math.max(0,pDur()-P.tout))}"></div>
+    <div class="lg" style="left:${pc(P.tout)};width:${pc(P_LOGO_DUR)}">логошот</div>
+    <div class="hd in" data-h="in" style="left:${pc(P.tin)}"><span>${fmt(P.tin)}</span></div>
+    <div class="hd out" data-h="out" style="left:${pc(P.tout)}"><span>${fmt(P.tout)}</span></div>
+    <div class="ph" id="pph"></div>`;
+  $("#pticks").innerHTML=[0,.25,.5,.75,1].map(k=>`<span>${fmt(D*k)}</span>`).join("");
+}
+function pBindTL(){
+  const tl=$("#ptl"); let drag=null;
+  const tAt=e=>{ const r=tl.getBoundingClientRect(); return Math.max(0,Math.min(pDur(),(e.clientX-r.left)/r.width*pDomain())); };
+  tl.onpointerdown=e=>{ pStop(); const h=e.target.closest("[data-h]"); drag=h?h.dataset.h:"seek"; tl.setPointerCapture(e.pointerId); move(e); };
+  tl.onpointermove=e=>{ if(drag) move(e); };
+  tl.onpointerup=()=>{ if(drag && drag!=="seek") render(); drag=null; };
+  function move(e){ const t=Math.round(tAt(e)*100)/100;
+    if(drag==="in"){ P.tin=Math.min(t,P.tout-1); P.t=P.tin; }
+    else if(drag==="out"){ P.tout=Math.max(t,P.tin+1); P.t=Math.max(P.tin,P.tout-1.5); }
+    else { P.t=t; P.logoT=null; }
+    pSeekVideo(); pDrawTL(); pTick();
+    if(drag!=="seek"){ const st=$("#stepBody"); const ti=$("#pTin"), to=$("#pTout"); if(ti) ti.value=fmt(P.tin); if(to) to.value=fmt(P.tout); }
+  }
+}
+function pSeekVideo(){ const v=$("#ppv"); if(v){ try{ v.currentTime=P.t; }catch(e){} } const L=$("#plogo"); if(L){ L.classList.add("hidden"); L.pause(); } }
+function pTick(){
+  const tc=$("#ptc"); const inLogo=P.logoT!=null;
+  if(tc) tc.textContent = inLogo ? `логошот ${P.logoT.toFixed(1)} / ${P_LOGO_DUR}` : (pDur()? `${fmt(P.t)} / ${fmt(pDur())}` : "");
+  const ph=$("#pph"); if(ph){ const T=inLogo? P.tout+P.logoT : P.t; ph.style.left=(T/pDomain()*100)+"%"; }
+  const mk=$("#pMark"); if(mk){
+    if(inLogo){ mk.textContent="Логошот"; mk.className="cutmark logo"; }
+    else if(P.t<P.tin-0.01 || P.t>P.tout+0.01){ mk.textContent="Брак — вырезается"; mk.className="cutmark bad"; }
+    else { mk.textContent=`Речь · ${fmt(P.t-P.tin)}`; mk.className="cutmark"; }
+  }
+}
+function pPlay(){
+  if(!pDur()) return;
+  if(P.t<P.tin || P.t>=P.tout-0.05) P.t=P.tin;
+  P.logoT=null; pPlaying=true; $("#pPlay")&&( $("#pPlay").textContent="❚❚ Пауза");
+  const v=$("#ppv");
+  if(v){ try{ v.currentTime=P.t; }catch(e){} v.play().catch(()=>{}); return; }
+  pLast=performance.now();
+  const loop=n=>{ if(!pPlaying) return; const dt=(n-pLast)/1000; pLast=n;
+    if(P.logoT==null){ P.t+=dt; if(P.t>=P.tout){ pStartLogo(); return; } } pTick(); pRaf=requestAnimationFrame(loop); };
+  pRaf=requestAnimationFrame(loop);
+}
+function pStartLogo(){
+  const v=$("#ppv"); v?.pause(); P.t=P.tout; P.logoT=0;
+  const L=$("#plogo"); if(!L){ pStop(); return; }
+  L.classList.remove("hidden"); L.currentTime=0; L.play().catch(()=>{});
+  L.ontimeupdate=()=>{ P.logoT=Math.min(P_LOGO_DUR,L.currentTime); pTick(); if(L.currentTime>=P_LOGO_DUR-0.03) pStop(true); };
+  L.onended=()=>pStop(true);
+}
+function pStop(keepLogo){
+  pPlaying=false; cancelAnimationFrame(pRaf);
+  $("#ppv")?.pause(); const L=$("#plogo"); if(L){ L.pause(); if(!keepLogo){ L.classList.add("hidden"); P.logoT=null; } }
+  const b=$("#pPlay"); if(b) b.textContent="▶ Пуск";
+}
+
+/* ---- JSON ---- */
+function pSurname(){ const n=P.f["Family name and Name"].trim().split(/\s+/); return (n[n.length-1]||"spiker").replace(/[^\p{L}\d_-]+/gu,""); }
+function pJsonName(){ return `DDoS_priglos_${pSurname()}_${(P.f.Day||"").replace(".","-")}.json`; }
+function pPayload(){
+  const fm=P_FORMATS.filter(f=>P.formats[f.id]).map(f=>f.id), sp=Math.round(pSpeech()*100)/100;
+  return {
+    type:"ddos_priglos", version:1,
+    csv:Object.fromEntries(["Family name and Name","Job title","Title",C1,C2,C3,"Day","Time"].map(k=>[k,P.f[k].trim()])),
+    video:{ file: P.src?.kind==="link" ? P.src.name.replace(/^Яндекс Диск · /,"") : (P.src?.kind==="demo" ? "P1155710.MOV" : P.src?.name),
+            kind:P.src?.kind, url:P.src?.url||null, upload:P.src?.upload||null,
+            duration:pDur(), trim_in:Math.round(P.tin*100)/100, trim_out:Math.round(P.tout*100)/100 },
+    timeline:{ speech_start:0, speech_end:sp, logoshot_start:sp, logoshot_duration:P_LOGO_DUR, total:Math.round((sp+P_LOGO_DUR)*100)/100 },
+    formats:fm, render_queue:P.rq, output_name:`DDoS_priglos_${pSurname()}`,
+    contact:S.contact.trim(), notes:P.notes.trim(), kaiten:S.kaiten||null
+  };
+}
+function pDownload(){
+  const blob=new Blob([JSON.stringify(pPayload(),null,2)],{type:"application/json"});
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=pJsonName();
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000);
+  toast("JSON скачан: "+pJsonName());
+}
+async function pNext(){
+  if(!pCan()) return;
+  if(P.step<P_STEPS.length-1) return pGo(P.step+1);
+  if(!live()){ pDownload(); return; }
+  const btn=$("#next"); btn.disabled=true;
+  try{
+    if(P.src.kind==="file"){
+      btn.textContent="Загружаем видео…";
+      const r=await api("/upload-url",{name:P.src.name,size:P.src.size,type:P.src.file.type});
+      await putWithProgress(r.put,P.src.file,pct=>btn.textContent=`Загружаем видео… ${pct}%`); P.src.upload=r.key;
+    }
+    btn.textContent="Создаём задачу…";
+    const j=await api("/submit",{payload:pPayload()});
+    P.sent={id:j.id,issue:j.issue_url}; pDownload(); pRenderSent();
+  }catch(e){ btn.disabled=false; btn.textContent="Отправить в работу"; toast("Ошибка: "+e.message); }
+}
+function pRenderSent(){
+  $("#stepBody").innerHTML=`<div class="stephead"><span class="n">✓</span>Заявка #${P.sent.id}</div>
+    <h2>Заявка отправлена</h2><p class="lead">JSON сохранён у вас и лежит в задаче на GitHub — дизайнер применит его скриптом.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn acc" id="pDl2">⬇ JSON ещё раз</button>${P.sent.issue?`<a class="btn" href="${esc(P.sent.issue)}" target="_blank" style="text-decoration:none">Задача на GitHub ↗</a>`:""}</div>`;
+  $("#pDl2").onclick=pDownload; $("#back").style.visibility="hidden";
+  $("#next").textContent="Новая заявка"; $("#next").disabled=false; $("#next").onclick=()=>location.reload();
+}
+
+/* ---- вкладки ---- */
+document.querySelectorAll(".seg [data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+if(location.hash==="#priglos") setMode("priglos");
 </script>
 </body>
 </html>

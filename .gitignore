@@ -4,3 +4,4 @@ work/
 out/
 __pycache__/
 .DS_Store
+tests/priglos_sample/master text.csv

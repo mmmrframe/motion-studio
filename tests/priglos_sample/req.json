@@ -1,0 +1,40 @@
+{
+  "type": "ddos_priglos",
+  "version": 1,
+  "csv": {
+    "Family name and Name": "Алексей Вишняков",
+    "Job title": "Технический директор департамента IdM",
+    "Title": "Новая IdM-реальность: результаты внедрений коробочной версии с самостоятельной установкой",
+    "Сontent 1": "Как мы решились на создание коробочной версии IdM",
+    "Сontent 2": "Результаты исследований и первых проектов",
+    "Сontent 3": "Функциональность «коробки» и эффект внедрения для любого сегмента",
+    "Day": "04.10",
+    "Time": "12:00"
+  },
+  "video": {
+    "file": "speaker_new.mov",
+    "kind": "file",
+    "url": null,
+    "upload": null,
+    "duration": 40.32,
+    "trim_in": 2.76,
+    "trim_out": 37.24
+  },
+  "timeline": {
+    "speech_start": 0,
+    "speech_end": 34.48,
+    "logoshot_start": 34.48,
+    "logoshot_duration": 3.68,
+    "total": 38.16
+  },
+  "formats": [
+    "16_9",
+    "4_5",
+    "9_16"
+  ],
+  "render_queue": true,
+  "output_name": "DDoS_priglos_Вишняков",
+  "contact": "",
+  "notes": "",
+  "kaiten": null
+}
