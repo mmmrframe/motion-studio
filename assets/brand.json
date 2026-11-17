@@ -7,10 +7,51 @@
     "dark": "#2B323A"
   },
   "titles": {
-    "size": 0.042,
-    "box_bg": "#2B323A",
-    "box_opacity": 0.85,
-    "radius": 0.012
+    "_comment": "Размеры — доля высоты кадра. Значения — заглушка до сверки с гайдом.",
+    "roles": {
+      "title": {
+        "font": "ONY Bold",
+        "size": 0.066,
+        "line": 1.05
+      },
+      "subtitle": {
+        "font": "ONY Medium",
+        "size": 0.044,
+        "line": 1.15
+      },
+      "text": {
+        "font": "ONY Regular",
+        "size": 0.033,
+        "line": 1.3
+      }
+    },
+    "stack_gap": 0.35,
+    "zones": {
+      "full": {
+        "left": 0.05,
+        "right": 0.05,
+        "top": 0.15,
+        "bottom": 0.08
+      },
+      "space": {
+        "left": 0.58,
+        "right": 0.05,
+        "top": 0.15,
+        "bottom": 0.22
+      }
+    },
+    "plate": {
+      "color": "#2B323A",
+      "opacity": 0.86,
+      "radius": 0.3,
+      "padding": [
+        0.3,
+        0.55
+      ],
+      "_comment": "плашка только когда титр над экраном (сцены без свободной зоны)"
+    },
+    "color_on_dark": "#FFFFFF",
+    "color_on_light": "#2B323A"
   },
   "logo": {
     "files": {
