@@ -1,14 +1,37 @@
 {
-  "_comment": "Значения logo — заглушка до сверки с гайдом Солар: поправьте отступы и высоту по гайду.",
+  "_comment": "Отступы и размеры logo/age_mark — заглушка до сверки с гайдом Солар.",
   "font": "ONY Medium",
-  "colors": { "accent": "#FE6E36", "white": "#FFFFFF", "dark": "#2B323A" },
-  "titles": { "size": 0.042, "box_bg": "#2B323A", "box_opacity": 0.85, "radius": 0.012 },
+  "colors": {
+    "accent": "#FE6E36",
+    "white": "#FFFFFF",
+    "dark": "#2B323A"
+  },
+  "titles": {
+    "size": 0.042,
+    "box_bg": "#2B323A",
+    "box_opacity": 0.85,
+    "radius": 0.012
+  },
   "logo": {
-    "files": { "white": "assets/brand/solar_logo_white.png", "dark": "assets/brand/solar_logo_dark.png" },
+    "files": {
+      "white": "assets/brand/solar_logo_white.png",
+      "color": "assets/brand/solar_logo_color.png"
+    },
     "position": "top-left",
     "margin_x": 0.042,
     "margin_y": 0.065,
     "height": 0.037,
     "fade_in": 0.4
+  },
+  "age_mark": {
+    "text": "18+",
+    "font": "ONY Medium",
+    "position": "top-right",
+    "margin_x": 0.042,
+    "margin_y": 0.065,
+    "height": 0.037,
+    "opacity": 0.6,
+    "color_on_dark": "#FFFFFF",
+    "color_on_light": "#2B323A"
   }
 }
