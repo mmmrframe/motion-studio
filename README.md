@@ -4,12 +4,12 @@
 
 - Форма: https://mmmrframe.github.io/motion-studio/ (без ключа — демо-режим)
 - Настройка связки: [SETUP.md](SETUP.md)
-- Ролик на ТВ в офис (сцены из презентации): [TV_OFFICE.md](TV_OFFICE.md) · вкладка формы: https://mmmrframe.github.io/motion-studio/#tv
+- Ролик на ТВ в офис (тексты сцен + материалы для фона): [TV_OFFICE.md](TV_OFFICE.md) · вкладка формы: https://mmmrframe.github.io/motion-studio/#tv
 - Приглашения DDoS priglos (вкладка формы, JSON и скрипт для AE): [DDOS_PRIGLOS.md](DDOS_PRIGLOS.md) · форма сразу на вкладке: https://mmmrframe.github.io/motion-studio/#priglos
 
 | Папка | Что внутри |
 |---|---|
-| `web/` | форма (GitHub Pages); `web/ae/` — скрипты для After Effects, `web/assets/` — логошот для предпросмотра, `web/fonts/` — Onest, `web/vendor/` — JSZip для импорта PPTX |
+| `web/` | форма (GitHub Pages); `web/ae/` — скрипты для After Effects, `web/assets/` — логошот для предпросмотра, `web/fonts/` — Onest |
 | `worker/` | Cloudflare Worker: ключи доступа, создание issue, загрузка и выдача файлов |
 | `.github/workflows/` | `screencast.yml` — сборка ролика агентом, `pages.yml` — публикация формы |
 | `agent/CLAUDE.md` | регламент агента |

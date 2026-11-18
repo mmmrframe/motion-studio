@@ -61,13 +61,18 @@ export default {
       const p = payload;
       // Ролик на ТВ: сцены из презентации; скрипт AE появится, когда будет шаблон анимации
       if (p.type === "tv_office") {
+        const bg = p.background || {};
         const body = [
           `**Заказчик:** ${customer} · ${p.contact}`,
           p.kaiten ? `**Кайтен:** #${p.kaiten}` : "",
-          `**Продукт:** ${p.product}`,
-          `**Сцены:** ${p.scenes.length} · ролик ${p.total} с · ${p.format.width}×${p.format.height}, ${p.format.fps} fps`,
-          ...p.scenes.map(s => `- ${s.id} · ${s.duration} с${s.cards ? " · блоки " + s.cards.map(c => c.n).join(", ") : ""}`),
-          p.notes ? `**Пожелания:** ${p.notes}` : "",
+          `**Продукт:** ${p.product} · сцен: ${p.scenes.length}`,
+          ...p.scenes.map(s => `- ${s.id}${s.cards ? " · блоки " + s.cards.map(c => c.n).join(", ") : ""}`),
+          "",
+          "### Фон (отдельный трек для дизайнера)",
+          bg.note ? `**Что на фоне:** ${bg.note}` : "",
+          bg.link ? `**Ссылка:** ${bg.link}` : "",
+          ...(bg.files || []).map(f => `- ${f.name}${f.upload ? " · R2: " + f.upload : ""}`),
+          p.notes ? `\n**Пожелания:** ${p.notes}` : "",
           "",
           "<!-- request-json -->\n```json\n" + JSON.stringify(p, null, 2) + "\n```",
         ].filter(Boolean).join("\n");
