@@ -59,6 +59,24 @@ export default {
       const { payload, prompt } = await req.json();
       payload.customer = customer;
       const p = payload;
+      // Ролик на ТВ: сцены из презентации; скрипт AE появится, когда будет шаблон анимации
+      if (p.type === "tv_office") {
+        const body = [
+          `**Заказчик:** ${customer} · ${p.contact}`,
+          p.kaiten ? `**Кайтен:** #${p.kaiten}` : "",
+          `**Продукт:** ${p.product}`,
+          `**Сцены:** ${p.scenes.length} · ролик ${p.total} с · ${p.format.width}×${p.format.height}, ${p.format.fps} fps`,
+          ...p.scenes.map(s => `- ${s.id} · ${s.duration} с${s.cards ? " · блоки " + s.cards.map(c => c.n).join(", ") : ""}`),
+          p.notes ? `**Пожелания:** ${p.notes}` : "",
+          "",
+          "<!-- request-json -->\n```json\n" + JSON.stringify(p, null, 2) + "\n```",
+        ].filter(Boolean).join("\n");
+        const r = await gh("/issues", { method: "POST", body: JSON.stringify({ title: `Ролик на ТВ: ${p.product}`, body, labels: ["tv-office", "status:queued"] }) });
+        if (!r.ok) return json({ error: await r.text() }, 502);
+        const issue = await r.json();
+        await env.KEYS.put(`req:${issue.number}`, key);
+        return json({ id: issue.number, issue_url: issue.html_url });
+      }
       // DDoS priglos: агент не нужен — в задаче лежит JSON, дизайнер применяет его скриптом ddos_priglos_apply.jsx
       if (p.type === "ddos_priglos") {
         const c = p.csv || {};

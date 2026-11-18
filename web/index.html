@@ -51,6 +51,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:28p
 
 /* layout */
 .grid{display:grid;grid-template-columns:440px 1fr;gap:40px;align-items:start}
+#right{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto;scrollbar-width:thin}
+@media (max-width:1100px){#right{position:static;max-height:none}}
 .panel{border:1px solid var(--line);background:var(--panel);border-radius:20px;padding:28px}
 .seg{display:grid;grid-template-columns:1fr 1fr;background:var(--field);border:1px solid var(--line);border-radius:14px;padding:5px;margin-bottom:26px}
 .seg button{padding:11px;border-radius:10px;font-weight:600;color:var(--mute)}
@@ -324,6 +326,56 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
 .how{background:var(--field);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;color:var(--mute);margin-top:12px}
 .how ol{padding-left:18px;display:grid;gap:4px}
 .how b{color:var(--text)}
+
+/* ===== Ролик на ТВ ===== */
+.seg.four{grid-template-columns:1fr 1.15fr 1.15fr .7fr}
+.seg.four button{padding:11px 4px;white-space:nowrap;font-size:14px}
+.seg.four small{display:none}
+.tcard{border:1px solid var(--line2);background:var(--field);border-radius:14px;padding:4px 14px 14px;margin-top:12px}
+.tcard-h{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;color:var(--mute);padding-top:10px}
+.tcard-h b{color:var(--acc);font-size:13px}
+.tcard label.f{margin-top:10px}
+.tscreen{border:1px solid var(--line);border-radius:16px;padding:12px;margin-top:16px;transition:.15s}
+.tscreen.on{border-color:rgba(255,106,43,.6);background:rgba(255,106,43,.03)}
+.tscreen-h{display:flex;align-items:center;gap:10px;font-size:14px}
+.tscreen-h span{color:var(--dim);font-size:12px}
+.tscreen-tools{margin-left:auto;display:flex;gap:2px}
+.tscreen-tools .btn{padding:4px 8px}
+.tdur{display:grid;gap:8px}
+.tdur>div{display:grid;grid-template-columns:30px 1fr 84px 14px;align-items:center;gap:10px;border:1px solid var(--line2);background:var(--field);border-radius:12px;padding:8px 10px;cursor:pointer}
+.tdur>div.on{border-color:var(--acc)}
+.tdur span{font:600 12px "JetBrains Mono",monospace;color:var(--acc)}
+.tdur b{font-size:14px;font-weight:500}
+.tdur .input{padding:8px 10px;font-family:"JetBrains Mono",monospace}
+.tdur small{color:var(--dim)}
+.tvtabs{flex-wrap:wrap}
+.tvstrip{display:flex;gap:4px;padding:10px}
+.tvs{min-width:0;background:var(--field);border:1px solid var(--line2);border-radius:8px;padding:6px 8px;cursor:pointer;display:grid;gap:1px}
+.tvs.on{border-color:var(--acc);background:var(--accbg)}
+.tvs b{font:600 11px "JetBrains Mono",monospace;color:var(--acc)}
+.tvs span{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--mute)}
+.tvs small{font-size:10px;color:var(--dim)}
+/* кадр сцены: слайд 1280×720 → ×1.5 */
+.fr.tv{background:#171A1E;color:#fff;font-family:Arial,"Liberation Sans",Helvetica,sans-serif}
+.tv .tv-top{position:absolute;left:72px;top:18px;right:72px;height:44px;border-bottom:1.5px solid #2B3038;font-size:16px;color:#A1A8B2}
+.tv .tv-top i{position:absolute;left:0;bottom:-3px;width:100px;height:6px;background:#FE6E36}
+.tv .tv-logo{position:absolute;right:72px;top:16px;width:110px}
+.tv .tv-logo-big{position:absolute;left:72px;top:64px;width:250px}
+.tv .tv-title{position:absolute;left:84px;top:252px;width:1730px;height:176px;font-size:120px;font-weight:700;line-height:1.15;letter-spacing:-.01em;overflow:hidden}
+.tv .tv-desc{position:absolute;left:88px;top:476px;width:1640px;height:420px;font-size:44px;font-weight:700;line-height:1.3;overflow:hidden}
+.tv .tv-h{position:absolute;left:72px;width:1776px;height:100px;font-size:66px;font-weight:700;line-height:1.3;overflow:hidden;white-space:nowrap}
+.tv .tv-s{position:absolute;left:72px;width:1776px;height:56px;font-size:34px;color:#C9CED6;line-height:1.5;overflow:hidden;white-space:nowrap}
+.tv .tv-card{position:absolute;background:#21262E;overflow:hidden;box-sizing:border-box}
+.tv .tv-card.f{width:845px;height:329px;padding:34px 40px 30px 52px;display:grid;grid-template-columns:70px 1fr;grid-template-rows:auto 1fr;column-gap:0}
+.tv .tv-card.f:before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:#2B3038}
+.tv .tv-card.f b{color:#FE6E36;font-size:30px;font-weight:700;line-height:44px}
+.tv .tv-card.f .tv-ct{font-size:44px;font-weight:700;line-height:1.18;margin-bottom:20px}
+.tv .tv-card.f .tv-cx{grid-column:1/-1;font-size:34px;line-height:1.2;color:#A1A8B2}
+.tv .tv-card.a{top:290px;width:872px;height:740px;padding:44px 50px 26px 54px;display:flex;flex-direction:column}
+.tv .tv-card.a b{color:#FE6E36;font-size:42px;font-weight:700;margin-bottom:26px}
+.tv .tv-card.a .tv-ct{font-size:46px;font-weight:700;line-height:1.2;margin-bottom:36px}
+.tv .tv-card.a .tv-cx{font-size:37px;line-height:1.25;color:#A1A8B2}
+.tv .ex{opacity:.3}
 </style>
 </head>
 <body>
@@ -343,9 +395,10 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
 
   <div class="grid">
     <section class="panel" id="left">
-      <div class="seg three">
+      <div class="seg four">
         <button class="on" data-mode="screencast">Скринкаст</button>
         <button data-mode="priglos">DDoS priglos</button>
+        <button data-mode="tv">Ролик на ТВ</button>
         <button title="Скоро" onclick="toast('2D-ролики пока принимаем через YouGile')">2D ролик<small>скоро</small></button>
       </div>
       <div class="bars" id="bars"></div>
@@ -389,9 +442,10 @@ details.prompt pre{margin-top:14px;background:var(--field);border:1px solid var(
           <pre id="promptPre"></pre>
         </details>
       </div>
-    </div><div id="pRight" class="hidden"></div></section>
+    </div><div id="pRight" class="hidden"></div><div id="tRight" class="hidden"></div></section>
   </div>
 </div>
+<input type="file" id="pptxIn" accept=".pptx,application/vnd.openxmlformats-officedocument.presentationml.presentation" class="hidden">
 <input type="file" id="fileIn" accept="video/*,.mov,.mxf" class="hidden">
 <div class="toast" id="toast"></div>
 
@@ -598,6 +652,7 @@ function go(i){
 
 function render(){
   if(MODE==="priglos") return pRender();
+  if(MODE==="tv") return tRender();
   if(S.sent) return renderSent();
   renderBars();
   $("#stepBody").innerHTML = VIEWS[S.step]();
@@ -826,9 +881,10 @@ function renderPrompt(){ $("#promptPre").textContent = buildPrompt() + "\n\n--- 
 $("#copyPrompt").onclick=()=>{ navigator.clipboard?.writeText(buildPrompt()).then(()=>toast("Промт скопирован"),()=>toast("Не удалось скопировать")); };
 
 /* ---------- submit ---------- */
-$("#back").onclick=()=>MODE==="priglos"?pGo(P.step-1):go(S.step-1);
+$("#back").onclick=()=>MODE==="priglos"?pGo(P.step-1):MODE==="tv"?tGo(T.step-1):go(S.step-1);
 const nextHandler=async()=>{
   if(MODE==="priglos") return pNext();
+  if(MODE==="tv") return tNext();
   if(!canNext()) return;
   if(S.step<5) return go(S.step+1);
   const btn=$("#next"); btn.disabled=true;
@@ -944,7 +1000,8 @@ function setMode(m){
   document.querySelectorAll(".seg [data-mode]").forEach(b=>b.classList.toggle("on",b.dataset.mode===m));
   $("#scRight").classList.toggle("hidden",m!=="screencast");
   $("#pRight").classList.toggle("hidden",m!=="priglos");
-  try{ history.replaceState(null,"",location.pathname+location.search+(m==="priglos"?"#priglos":"")); }catch(e){}
+  $("#tRight").classList.toggle("hidden",m!=="tv");
+  try{ history.replaceState(null,"",location.pathname+location.search+(m==="screencast"?"":"#"+m)); }catch(e){}
   $("#next").onclick = nextHandler;
   render();
 }
@@ -1322,6 +1379,297 @@ function pRenderSent(){
 /* ---- вкладки ---- */
 document.querySelectorAll(".seg [data-mode]").forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
 if(location.hash==="#priglos") setMode("priglos");
+</script>
+<script>
+/* ====================== Ролик на ТВ в офис ====================== */
+// Сцена = слайд презентации. Структура: титул → «Что делает продукт» (4 карточки) → «Преимущества» (экраны по 2 карточки).
+const T_STEPS = ["Титул","Что делает продукт","Преимущества","Тайминг","Отправка"];
+const T_LIM = { product:30, desc:300, head:40, sub:110, fTitle:50, fText:110, aTitle:75, aText:300 };
+const T_DUR = { title:7, features:14, adv:10 };          // секунды по умолчанию
+const newCard = () => ({ title:"", text:"" });
+const T = {
+  step:0, product:"", desc:"",
+  feat:{ head:"Что делает продукт", sub:"", cards:[newCard(),newCard(),newCard(),newCard()] },
+  adv:{ head:"", sub:"", pairs:[[newCard(),newCard()],[newCard(),newCard()]] },
+  dur:{}, view:0, notes:"", sent:null, imported:null
+};
+// пример — тексты из презентации Solar AI Firewall
+const T_EXAMPLE = {
+  product:"Solar AI Firewall",
+  desc:"Специализированный шлюз безопасности для контроля взаимодействия сотрудников и приложений с внешними и внутренними ИИ-моделями. Проверяет запросы до отправки модели и ответы до выдачи пользователю, чтобы противодействовать атакам на ИИ и предотвращать раскрытие конфиденциальных данных.",
+  feat:{ head:"Что делает продукт", sub:"Проверяет запросы и ответы, включая переданные модели документы и историю диалога", cards:[
+    {title:"Защищает данные от раскрытия", text:"Маскирует конфиденциальные данные в запросах и ответах или блокирует их передачу по правилам компании."},
+    {title:"Противодействует атакам на ИИ", text:"Выявляет попытки заставить ИИ нарушить заданные правила или раскрыть защищённую информацию."},
+    {title:"Контролирует использование и затраты на ИИ", text:"Управляет доступом к моделям и ограничивает использование и расходы по сотрудникам и командам"},
+    {title:"Помогает расследовать инциденты и проводить аудит", text:"Показывает, кто обращался к ИИ, какая проверка сработала и какое действие применила защита."}]},
+  adv:{ head:"Преимущества Solar AI Firewall", sub:"Технологии защиты и экспертиза ГК «Солар»", pairs:[
+    [{title:"Полный цикл защиты при работе с ИИ — с ответственностью крупного ИБ-вендора", text:"Solar AI Firewall объединяет защиту данных и противодействие атакам — от запроса до ответа. За продуктом стоит ГК «Солар» — крупный ИБ-вендор с опытом защиты крупнейших организаций и ресурсами для разработки, внедрения, поддержки и развития решения с учётом новых угроз и задач бизнеса."},
+     {title:"Непрерывное совершенствование выявления атак на ИИ", text:"Защита развивается вместе с угрозами: лаборатория атак исследует способы обхода, а обучение и дообучение защитных моделей помогают совершенствовать обнаружение атак."}],
+    [{title:"Экосистема ГК «Солар» для безопасной работы с ИИ", text:"Solar webProxy контролирует доступ к ИИ-сервисам, Solar Dozor защищает корпоративные данные, а Solar AI Firewall проверяет запросы и ответы моделей. Вместе они обеспечивают комплексную защиту на разных этапах работы с ИИ."},
+     {title:"Многоуровневый анализ запросов, контекста и ответов", text:"Правила и анализ смысла работают совместно, помогая распознавать скрытые вредоносные инструкции и атаки, распределённые по нескольким сообщениям."}]]}
+};
+const nn = i => String(i+1).padStart(2,"0");
+
+/* ---- сцены ---- */
+function tScenes(){
+  const S=[{id:"S01_TITLE", kind:"title", name:"Титул"}, {id:"S02_FEATURES", kind:"features", name:"Что делает продукт"}];
+  T.adv.pairs.forEach((p,i)=>S.push({id:`S${nn(i+2)}_ADV_${nn(i)}`.replace(/^S(\d)_/,"S0$1_"), kind:"advantages", name:`Преимущества ${nn(i*2)}–${nn(i*2+1)}`, pair:i}));
+  S.forEach((s,i)=>{ s.id=`S${nn(i)}_${s.kind==="title"?"TITLE":s.kind==="features"?"FEATURES":"ADV_"+nn(s.pair)}`; s.dur = T.dur[s.id] ?? T_DUR[s.kind==="advantages"?"adv":s.kind]; });
+  return S;
+}
+const tTotal = () => tScenes().reduce((a,s)=>a+s.dur,0);
+
+/* ---- проверки ---- */
+const tLen = (v,max,min=1) => { const n=String(v||"").trim().length; return !n?"empty":n<min?"short":n>max?"long":"ok"; };
+function tStepOk(i){
+  const f=T.feat, a=T.adv;
+  switch(i){
+    case 0: return tLen(T.product,T_LIM.product)==="ok" && tLen(T.desc,T_LIM.desc)==="ok";
+    case 1: return tLen(f.head,T_LIM.head)==="ok" && f.cards.every(c=>tLen(c.title,T_LIM.fTitle)==="ok" && tLen(c.text,T_LIM.fText)==="ok");
+    case 2: return tLen(a.head,T_LIM.head)==="ok" && a.pairs.length>0 && a.pairs.every(p=>p.every(c=>tLen(c.title,T_LIM.aTitle)==="ok" && tLen(c.text,T_LIM.aText)==="ok"));
+    case 3: return tScenes().every(s=>s.dur>=2 && s.dur<=60);
+    case 4: return !!S.contact.trim();
+  }
+}
+function tCan(){ return tStepOk(T.step) && !(T.step<=2 && tOverflow().length); }
+function tGo(i){ T.step=Math.max(0,Math.min(T_STEPS.length-1,i)); const sc=tScenes(); T.view = T.step===0?0 : T.step===1?1 : T.step===2?Math.max(2,Math.min(T.view,sc.length-1)) : T.view; render(); }
+
+/* ---- поля ---- */
+function tField(path,label,max,{ta=false,rows=2,ph=""}={}){
+  const v=tGet(path), st=tLen(v,max), n=String(v).length;
+  return `<label class="f">${label}<span class="cnt ${st==="long"?'over':''}" data-tcnt="${path}">${n} / ${max}</span></label>
+    ${ta?`<textarea class="input" rows="${rows}" style="min-height:0" maxlength="${max}" data-tf="${path}" placeholder="${esc(ph)}">${esc(v)}</textarea>`
+        :`<input class="input" maxlength="${max}" data-tf="${path}" placeholder="${esc(ph)}" value="${esc(v)}">`}`;
+}
+function tGet(path){ return path.split(".").reduce((o,k)=>o?.[k],T) ?? ""; }
+function tSet(path,v){ const ks=path.split("."), last=ks.pop(); ks.reduce((o,k)=>o[k],T)[last]=v; }
+
+const T_VIEWS = [
+/* 0 — титул */
+() => `<h2>Титульная сцена</h2>
+  <p class="lead">Каждая сцена ролика — слайд презентации. Можно заполнить вручную или загрузить презентацию, поля подставятся сами.</p>
+  <div class="drop" id="tPptx" style="padding:18px 16px"><b>Загрузить презентацию .pptx</b><span>${T.imported?esc(T.imported):'тексты разложатся по сценам — проверьте и поправьте'}</span></div>
+  ${tField("product","Название продукта",T_LIM.product,{ph:"Solar AI Firewall"})}
+  ${tField("desc","Описание",T_LIM.desc,{ta:true,rows:5,ph:"Специализированный шлюз безопасности для…"})}
+  <p class="hint" style="margin-top:14px"><span class="link" id="tDemo">Заполнить примером (Solar AI Firewall)</span></p>
+  <div id="tFit" class="hidden"></div>`,
+
+/* 1 — что делает продукт */
+() => `<h2>Что делает продукт</h2>
+  <p class="lead">Одна сцена: заголовок, подзаголовок и 4 карточки — 2×2, как на слайде.</p>
+  ${tField("feat.head","Заголовок",T_LIM.head)}
+  ${tField("feat.sub","Подзаголовок",T_LIM.sub,{ta:true})}
+  ${T.feat.cards.map((c,i)=>`<div class="tcard"><div class="tcard-h"><b>${nn(i)}</b>Карточка ${i+1}</div>
+    ${tField(`feat.cards.${i}.title`,"Заголовок",T_LIM.fTitle,{ta:true})}
+    ${tField(`feat.cards.${i}.text`,"Текст",T_LIM.fText,{ta:true,rows:3})}</div>`).join("")}
+  <div id="tFit" class="hidden"></div>`,
+
+/* 2 — преимущества */
+() => `<h2>Преимущества</h2>
+  <p class="lead">Каждый экран — отдельная сцена с двумя блоками. Нумерация сквозная. Экраны добавляются парой блоков.</p>
+  ${tField("adv.head","Заголовок (на всех экранах)",T_LIM.head,{ph:"Преимущества Solar AI Firewall"})}
+  ${tField("adv.sub","Подзаголовок",T_LIM.sub,{ph:"Технологии защиты и экспертиза ГК «Солар»"})}
+  ${T.adv.pairs.map((p,pi)=>`<div class="tscreen ${tSceneIdx('adv',pi)===T.view?'on':''}" data-tscr="${pi}">
+    <div class="tscreen-h"><b>Экран ${pi+1}</b><span>сцена ${nn(pi+2)} · блоки ${nn(pi*2)} и ${nn(pi*2+1)}</span>
+      <span class="tscreen-tools">
+        <button class="btn sm ghost" data-tmv="${pi}:-1" ${pi===0?'disabled':''} title="Выше">↑</button>
+        <button class="btn sm ghost" data-tmv="${pi}:1" ${pi===T.adv.pairs.length-1?'disabled':''} title="Ниже">↓</button>
+        <button class="btn sm ghost" data-tdel="${pi}" ${T.adv.pairs.length<2?'disabled':''} title="Удалить экран">✕</button></span></div>
+    ${p.map((c,ci)=>`<div class="tcard"><div class="tcard-h"><b>${nn(pi*2+ci)}</b>Блок ${pi*2+ci+1}</div>
+      ${tField(`adv.pairs.${pi}.${ci}.title`,"Заголовок",T_LIM.aTitle,{ta:true})}
+      ${tField(`adv.pairs.${pi}.${ci}.text`,"Текст",T_LIM.aText,{ta:true,rows:4})}</div>`).join("")}
+  </div>`).join("")}
+  <button class="btn" id="tAdd" style="width:100%;margin-top:12px">＋ Добавить экран (2 блока)</button>
+  <div id="tFit" class="hidden"></div>`,
+
+/* 3 — тайминг */
+() => { const sc=tScenes(); return `<h2>Тайминг</h2>
+  <p class="lead">Длительность каждой сцены. Анимацию появления и переходы возьмём из проекта AE — здесь только время на экране.</p>
+  <div class="tdur">${sc.map((s,i)=>`<div class="${i===T.view?'on':''}" data-tview="${i}"><span>${nn(i)}</span><b>${esc(s.name)}</b>
+    <input class="input" type="number" min="2" max="60" step="0.5" value="${s.dur}" data-tdur="${s.id}"><small>с</small></div>`).join("")}</div>
+  <div class="tstat" style="grid-template-columns:repeat(2,1fr)"><div><small>Сцен</small><b>${sc.length}</b></div><div class="o"><small>Ролик</small><b>${fmt(tTotal())}</b></div></div>
+  <p class="hint">Совет: время на чтение — примерно 1 с на 2–3 слова текста в сцене.</p>`; },
+
+/* 4 — отправка */
+() => { const sc=tScenes(); return `<h2>Отправка</h2>
+  <p class="lead">Заявка собирается в JSON: по нему скрипт соберёт сцены в AE, когда добавим шаблон анимации.</p>
+  <dl class="sum">
+    <dt>Продукт</dt><dd>${esc(T.product)}</dd>
+    <dt>Сцены</dt><dd>${sc.map((s,i)=>`${nn(i)} · ${esc(s.name)} — ${s.dur} с`).join("<br>")}</dd>
+    <dt>Ролик</dt><dd>${fmt(tTotal())} · 1920×1080, 25 fps</dd>
+  </dl>
+  <label class="f">Контакт для связи</label>
+  <input class="input" id="tContact" placeholder="Имя и Telegram / почта" value="${esc(S.contact)}">
+  <label class="f">Пожелания <span>необязательно</span></label>
+  <textarea class="input" id="tNotes" placeholder="Например: экран в переговорке, без звука, нужно к понедельнику">${esc(T.notes)}</textarea>
+  <div class="dl"><button class="btn" id="tDl">⬇ JSON заявки <small>${esc(tJsonName())}</small></button></div>`; }
+];
+function tSceneIdx(kind,pair){ return kind==="adv" ? 2+pair : kind==="features"?1:0; }
+
+/* ---- рендер ---- */
+function tRender(){
+  if(T.sent) return tRenderSent();
+  const bars=$("#bars"); bars.style.gridTemplateColumns=`repeat(${T_STEPS.length},1fr)`;
+  bars.innerHTML=T_STEPS.map((n,i)=>`<button class="${i===T.step?'cur':i<T.step?'done':''}" title="${n}" data-tgo="${i}"></button>`).join("");
+  bars.querySelectorAll("[data-tgo]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.tgo; if(i<T.step) tGo(i); });
+  $("#stepBody").innerHTML = `<div class="stephead"><span class="n">${T.step+1}</span>${T_STEPS[T.step]}<span class="of">шаг ${T.step+1} из ${T_STEPS.length}</span></div>` + T_VIEWS[T.step]();
+  $("#back").style.visibility = T.step===0?"hidden":"visible";
+  $("#next").textContent = T.step===T_STEPS.length-1 ? (live()?"Отправить в работу":"Скачать JSON") : "Дальше";
+  tBind(); tFitWarn(); $("#next").disabled=!tCan(); tRenderRight();
+}
+function tBind(){
+  const B=$("#stepBody");
+  B.querySelectorAll("[data-tf]").forEach(el=>{
+    el.oninput=()=>{ const path=el.dataset.tf; tSet(path, el.value.replace(/[\r\n]+/g," "));
+      const c=B.querySelector(`[data-tcnt="${CSS.escape(path)}"]`); if(c) c.textContent=`${el.value.length} / ${el.maxLength}`;
+      const m=/^adv\.pairs\.(\d+)/.exec(path); if(m) T.view=2+ +m[1]; else if(path.startsWith("feat")) T.view=1; else T.view=0;
+      tFitWarn(); $("#next").disabled=!tCan(); tRenderRight(); };
+    el.onfocus=()=>{ const m=/^adv\.pairs\.(\d+)/.exec(el.dataset.tf); if(m && T.view!==2+ +m[1]){ T.view=2+ +m[1]; B.querySelectorAll("[data-tscr]").forEach(s=>s.classList.toggle("on",+s.dataset.tscr===+m[1])); tRenderRight(); } };
+  });
+  $("#tDemo")?.addEventListener("click",()=>{ const E=JSON.parse(JSON.stringify(T_EXAMPLE)); Object.assign(T,{product:E.product,desc:E.desc,feat:E.feat,adv:E.adv}); render(); });
+  const pp=$("#tPptx"); if(pp){ pp.onclick=()=>$("#pptxIn").click(); pp.ondragover=e=>{e.preventDefault();pp.classList.add("over")}; pp.ondragleave=()=>pp.classList.remove("over"); pp.ondrop=e=>{e.preventDefault();pp.classList.remove("over"); e.dataTransfer.files[0]&&tImport(e.dataTransfer.files[0]);}; }
+  $("#tAdd")?.addEventListener("click",()=>{ T.adv.pairs.push([newCard(),newCard()]); T.view=2+T.adv.pairs.length-1; render();
+    setTimeout(()=>{ const last=[...document.querySelectorAll("[data-tscr]")].pop(); last?.scrollIntoView({behavior:"smooth",block:"start"}); last?.querySelector("textarea")?.focus(); },50); });
+  B.querySelectorAll("[data-tdel]").forEach(b=>b.onclick=()=>{ const i=+b.dataset.tdel; const p=T.adv.pairs[i];
+    if(p.some(c=>c.title||c.text) && !b.dataset.sure){ b.dataset.sure=1; b.textContent="Точно?"; return; }
+    T.adv.pairs.splice(i,1); T.view=Math.min(T.view,2+T.adv.pairs.length-1); render(); });
+  B.querySelectorAll("[data-tmv]").forEach(b=>b.onclick=()=>{ const [i,d]=b.dataset.tmv.split(":").map(Number); const P2=T.adv.pairs; [P2[i],P2[i+d]]=[P2[i+d],P2[i]]; T.view=2+i+d; render(); });
+  B.querySelectorAll("[data-tscr]").forEach(s=>s.addEventListener("click",e=>{ if(e.target.closest("button,textarea,input")) return; T.view=2+ +s.dataset.tscr; render(); }));
+  B.querySelectorAll("[data-tdur]").forEach(el=>el.oninput=()=>{ T.dur[el.dataset.tdur]=Math.max(0,parseFloat(el.value)||0); $("#next").disabled=!tCan(); const tb=B.querySelector(".tstat .o b"); if(tb) tb.textContent=fmt(tTotal()); });
+  B.querySelectorAll("[data-tview]").forEach(d=>d.addEventListener("click",e=>{ if(e.target.tagName==="INPUT") return; T.view=+d.dataset.tview; render(); }));
+  const tc=$("#tContact"); if(tc) tc.oninput=()=>{ S.contact=tc.value; store("ms_contact",tc.value); $("#next").disabled=!tCan(); };
+  const tn=$("#tNotes"); if(tn) tn.oninput=()=>{ T.notes=tn.value; };
+  $("#tDl")?.addEventListener("click",tDownload);
+}
+
+/* ---- превью сцен (по слайдам презентации, кадр 1920×1080) ---- */
+function tSceneHTML(i, light){
+  const sc=tScenes()[i]; if(!sc) return "";
+  const ph=(v,d)=>String(v||"").trim()?esc(v):`<span class="ex">${esc(d)}</span>`;
+  const head = (h,s,hd,sd) => `<div class="tv-top"><span>${ph(T.product,"Название продукта")}</span><i></i></div>
+    <img class="tv-logo" alt="Solar" src="${LOGO.color}">
+    <div class="tv-h" style="top:${hd}px">${ph(h,"Заголовок")}</div><div class="tv-s" style="top:${sd}px">${ph(s,"Подзаголовок")}</div>`;
+  let body="";
+  if(sc.kind==="title"){
+    body=`<img class="tv-logo-big" alt="Solar" src="${LOGO.color}">
+      <div class="tv-title">${ph(T.product,"Название продукта")}</div>
+      <div class="tv-desc">${ph(T.desc,"Описание продукта")}</div>`;
+  } else if(sc.kind==="features"){
+    const pos=[[72,342],[1004,342],[72,702],[1004,702]];
+    body=head(T.feat.head,T.feat.sub,100,214)+T.feat.cards.map((c,k)=>`<div class="tv-card f" data-blk style="left:${pos[k][0]}px;top:${pos[k][1]}px">
+      <b>${nn(k)}</b><div class="tv-ct">${ph(c.title,"Заголовок карточки")}</div><div class="tv-cx">${ph(c.text,"Текст карточки")}</div></div>`).join("");
+  } else {
+    const p=T.adv.pairs[sc.pair]||[];
+    body=head(T.adv.head,T.adv.sub,86,182)+p.map((c,k)=>`<div class="tv-card a" data-blk style="left:${k?976:72}px">
+      <b>${nn(sc.pair*2+k)}</b><div class="tv-ct">${ph(c.title,"Заголовок блока")}</div><div class="tv-cx">${ph(c.text,"Текст блока")}</div></div>`).join("");
+  }
+  return `<div class="pvw tvw" data-w="1920" data-h="1080"><div class="fr tv" style="width:1920px;height:1080px">${body}</div></div>`;
+}
+function tRenderRight(){
+  const R=$("#tRight"), sc=tScenes(); T.view=Math.min(T.view,sc.length-1);
+  R.innerHTML=`<div class="rhead"><div><h3>Предпросмотр</h3><p>Сцена ${nn(T.view)} из ${sc.length} · ${esc(sc[T.view].name)}</p></div>
+      <span class="tc">ролик ${fmt(tTotal())}</span></div>
+    <div class="card">
+      <div class="fmts tvtabs">${sc.map((s,i)=>`<button class="${i===T.view?'on':''}" data-tv="${i}" title="${esc(s.name)}">${nn(i)}</button>`).join("")}</div>
+      ${tSceneHTML(T.view)}
+      <div class="cardfoot"><b>${esc(sc[T.view].id)}</b><span class="tc">${sc[T.view].dur} с · по слайду презентации, анимация — из AE</span></div>
+    </div>
+    <div class="card tvstrip">${sc.map((s,i)=>`<div class="tvs ${i===T.view?'on':''}" data-tv="${i}" style="flex:${s.dur}"><b>${nn(i)}</b><span>${esc(s.name)}</span><small>${s.dur} с</small></div>`).join("")}</div>`;
+  R.querySelectorAll("[data-tv]").forEach(b=>b.onclick=()=>{ T.view=+b.dataset.tv; tRenderRight(); });
+  tFitAll();
+}
+function tFitAll(){
+  document.querySelectorAll("#tRight .pvw").forEach(w=>{ const W=+w.dataset.w,H=+w.dataset.h,cw=w.parentElement.clientWidth,k=Math.min(cw/W,620/H);
+    w.style.width=W*k+"px"; w.style.height=H*k+"px"; w.firstElementChild.style.transform=`scale(${k})`; });
+}
+addEventListener("resize",()=>{ if(MODE==="tv") tFitAll(); });
+
+/* ---- влезает ли текст: рисуем сцены шага вне экрана и меряем блоки ---- */
+function tOverflow(){
+  const idx = T.step===0?[0] : T.step===1?[1] : T.step===2? T.adv.pairs.map((_,i)=>2+i) : [];
+  const host=document.createElement("div"); host.style.cssText="position:fixed;left:-99999px;top:0;visibility:hidden"; document.body.appendChild(host);
+  const bad=[];
+  idx.forEach(i=>{ host.innerHTML=tSceneHTML(i,true);
+    host.querySelectorAll("[data-blk],.tv-desc,.tv-title,.tv-h,.tv-s").forEach(b=>{ if(b.scrollHeight>b.clientHeight+1 || b.scrollWidth>b.clientWidth+1) bad.push({i, what:b.matches("[data-blk]")?"блок "+b.querySelector("b").textContent:b.className.replace("tv-","")}); }); });
+  host.remove(); return bad;
+}
+function tFitWarn(){
+  const el=$("#tFit"); if(!el) return; const o=tOverflow();
+  const names={title:"название", desc:"описание", h:"заголовок", s:"подзаголовок"};
+  el.className=o.length?"fitwarn":"hidden";
+  el.innerHTML=o.length?`<b>Не влезает в сцену:</b> ${o.map(x=>`сцена ${nn(x.i)} — ${names[x.what]||x.what}`).join("; ")}. Сократите текст.`:"";
+}
+
+/* ---- импорт PPTX ---- */
+function loadJSZip(){ return window.JSZip ? Promise.resolve(window.JSZip) : new Promise((ok,fail)=>{ const s=document.createElement("script"); s.src="vendor/jszip.min.js"; s.onload=()=>ok(window.JSZip); s.onerror=()=>fail(new Error("не загрузилась библиотека JSZip")); document.head.appendChild(s); }); }
+async function tImport(file){
+  try{
+    const JSZip=await loadJSZip(), zip=await JSZip.loadAsync(file);
+    const names=Object.keys(zip.files).filter(n=>/^ppt\/slides\/slide\d+\.xml$/.test(n)).sort((a,b)=>parseInt(a.match(/\d+/)[0])-parseInt(b.match(/\d+/)[0]));
+    const A="http://schemas.openxmlformats.org/drawingml/2006/main";
+    const slides=[];
+    for(const n of names){
+      const doc=new DOMParser().parseFromString(await zip.file(n).async("string"),"application/xml");
+      const items=[...doc.getElementsByTagName("p:sp")].map(sp=>{
+        const off=sp.getElementsByTagNameNS(A,"off")[0];
+        const paras=[...sp.getElementsByTagNameNS(A,"p")].map(p=>[...p.childNodes].map(r=>r.localName==="br"?" ":[...r.getElementsByTagNameNS(A,"t")].map(t=>t.textContent).join("")).join("")).filter(Boolean);
+        const text=paras.join(" ").replace(/\s+/g," ").trim();
+        const rpr=sp.getElementsByTagNameNS(A,"rPr")[0]; const sz=rpr? +rpr.getAttribute("sz")/100 : 0;
+        return {text, sz, x:off?+off.getAttribute("x")/9525:0, y:off?+off.getAttribute("y")/9525:0};
+      }).filter(t=>t.text);
+      slides.push(items);
+    }
+    const isNum=t=>/^\d{1,2}$/.test(t.text);
+    const cardsOf=items=>{ const nums=items.filter(isNum).sort((a,b)=>a.y-b.y||a.x-b.x);
+      return nums.map(N=>{ const below=nums.filter(M=>M!==N && Math.abs(M.x-N.x)<60 && M.y>N.y).map(M=>M.y);
+        const yMax=below.length?Math.min(...below)-10:1e9;
+        const own=items.filter(t=>!isNum(t) && t.x>=N.x-30 && t.x<N.x+560 && t.y>=N.y-12 && t.y<yMax).sort((a,b)=>a.y-b.y||a.x-b.x);
+        const tt=own.slice().sort((a,b)=>b.sz-a.sz)[0]; const tx=own.filter(t=>t!==tt);
+        return {n:N.text, x:N.x, y:N.y, title:tt?.text||"", text:tx.map(t=>t.text).join(" ")}; }).sort((a,b)=>+a.n-+b.n); };
+    const headOf=items=>{ const top=items.filter(t=>!isNum(t) && t.y<220 && t.sz>=12).sort((a,b)=>a.y-b.y); const h=top.slice().sort((a,b)=>b.sz-a.sz)[0]; const s=top.filter(t=>t!==h && t.y>(h?.y||0)).sort((a,b)=>a.y-b.y)[0]; return {head:h?.text||"", sub:s?.text||""}; };
+    let feat=null; const advCards=[]; let advHead=null; let titleSl=null;
+    slides.forEach(items=>{ const cards=cardsOf(items);
+      if(!cards.length){ if(!titleSl) titleSl=items; return; }
+      if(cards.length>=3 && !feat){ feat={...headOf(items), cards}; return; }
+      if(!advHead) advHead=headOf(items); advCards.push(...cards); });
+    if(titleSl){ const s=titleSl.slice().sort((a,b)=>b.sz-a.sz); T.product=(s[0]?.text||"").slice(0,T_LIM.product); T.desc=(s[1]?.text||"").slice(0,T_LIM.desc); }
+    if(feat){ T.feat.head=feat.head.slice(0,T_LIM.head); T.feat.sub=feat.sub.slice(0,T_LIM.sub); T.feat.cards=[0,1,2,3].map(k=>({title:(feat.cards[k]?.title||"").slice(0,T_LIM.fTitle), text:(feat.cards[k]?.text||"").slice(0,T_LIM.fText)})); }
+    if(advCards.length){ T.adv.head=(advHead?.head||"").slice(0,T_LIM.head); T.adv.sub=(advHead?.sub||"").slice(0,T_LIM.sub); T.adv.pairs=[];
+      for(let k=0;k<advCards.length;k+=2) T.adv.pairs.push([0,1].map(d=>({title:(advCards[k+d]?.title||"").slice(0,T_LIM.aTitle), text:(advCards[k+d]?.text||"").slice(0,T_LIM.aText)}))); }
+    T.imported=`${file.name}: ${slides.length} слайдов → титул, ${feat?4:0} карточек, ${advCards.length} блоков преимуществ`;
+    toast("Презентация разложена по сценам — проверьте тексты"); render();
+  }catch(e){ toast("Не удалось прочитать презентацию: "+e.message); }
+}
+
+/* ---- JSON ---- */
+function tJsonName(){ return `TV_${(T.product||"rolik").replace(/[^\p{L}\d]+/gu,"_").replace(/^_|_$/g,"")}.json`; }
+function tPayload(){
+  const sc=tScenes(); let t=0;
+  return { type:"tv_office", version:1, format:{width:1920,height:1080,fps:25}, product:T.product.trim(),
+    scenes: sc.map(s=>{ const o={id:s.id, kind:s.kind, start:Math.round(t*100)/100, duration:s.dur}; t+=s.dur;
+      if(s.kind==="title") Object.assign(o,{title:T.product.trim(), description:T.desc.trim()});
+      else if(s.kind==="features") Object.assign(o,{heading:T.feat.head.trim(), subheading:T.feat.sub.trim(), cards:T.feat.cards.map((c,i)=>({n:nn(i), title:c.title.trim(), text:c.text.trim()}))});
+      else Object.assign(o,{heading:T.adv.head.trim(), subheading:T.adv.sub.trim(), cards:T.adv.pairs[s.pair].map((c,k)=>({n:nn(s.pair*2+k), title:c.title.trim(), text:c.text.trim()}))});
+      return o; }),
+    total:Math.round(t*100)/100, contact:S.contact.trim(), notes:T.notes.trim(), kaiten:S.kaiten||null };
+}
+function tDownload(){ const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([JSON.stringify(tPayload(),null,2)],{type:"application/json"})); a.download=tJsonName(); document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(a.href),4000); toast("JSON скачан: "+tJsonName()); }
+async function tNext(){
+  if(!tCan()) return;
+  if(T.step<T_STEPS.length-1) return tGo(T.step+1);
+  if(!live()) return tDownload();
+  const btn=$("#next"); btn.disabled=true; btn.textContent="Создаём задачу…";
+  try{ const j=await api("/submit",{payload:tPayload()}); T.sent={id:j.id,issue:j.issue_url}; tDownload(); tRenderSent(); }
+  catch(e){ btn.disabled=false; btn.textContent="Отправить в работу"; toast("Ошибка: "+e.message); }
+}
+function tRenderSent(){
+  $("#stepBody").innerHTML=`<div class="stephead"><span class="n">✓</span>Заявка #${T.sent.id}</div><h2>Заявка отправлена</h2>
+    <p class="lead">JSON сохранён у вас и лежит в задаче на GitHub.</p>
+    <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn acc" id="tDl2">⬇ JSON ещё раз</button>${T.sent.issue?`<a class="btn" href="${esc(T.sent.issue)}" target="_blank" style="text-decoration:none">Задача на GitHub ↗</a>`:""}</div>`;
+  $("#tDl2").onclick=tDownload; $("#back").style.visibility="hidden"; $("#next").textContent="Новая заявка"; $("#next").disabled=false; $("#next").onclick=()=>location.reload();
+}
+$("#pptxIn").onchange=e=>{ const f=e.target.files[0]; if(f) tImport(f); e.target.value=""; };
+if(location.hash==="#tv") setMode("tv");
 </script>
 </body>
 </html>
